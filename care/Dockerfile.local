@@ -1,0 +1,80 @@
+###########################################
+# Synctacles CARE - Home Assistant App   #
+# Multi-arch build for HA App Store       #
+# Build strategy: Local pre-built binary #
+###########################################
+
+# Build arguments
+ARG VERSION=0.1.0-beta
+ARG GIT_COMMIT=unknown
+ARG BUILD_DATE=unknown
+
+###########################################
+# amd64 build                            #
+###########################################
+
+FROM ghcr.io/home-assistant/amd64-base:3.18 AS build-amd64
+RUN apk add --no-cache bash
+COPY binaries/care-addon-amd64 /usr/bin/care-addon
+COPY run.sh /
+RUN chmod +x /run.sh /usr/bin/care-addon
+
+###########################################
+# arm64 build                            #
+###########################################
+
+FROM ghcr.io/home-assistant/aarch64-base:3.18 AS build-arm64
+RUN apk add --no-cache bash
+COPY binaries/care-addon-arm64 /usr/bin/care-addon
+COPY run.sh /
+RUN chmod +x /run.sh /usr/bin/care-addon
+
+###########################################
+# armv7 build                            #
+###########################################
+
+FROM ghcr.io/home-assistant/armv7-base:3.18 AS build-armv7
+RUN apk add --no-cache bash
+COPY binaries/care-addon-armv7 /usr/bin/care-addon
+COPY run.sh /
+RUN chmod +x /run.sh /usr/bin/care-addon
+
+###########################################
+# Select final image based on platform  #
+###########################################
+
+ARG TARGETARCH
+ARG TARGETVARIANT
+
+# Select the appropriate build stage
+FROM build-${TARGETARCH}${TARGETVARIANT:+}${TARGETVARIANT} AS final
+
+# Re-declare args for labels
+ARG VERSION
+ARG GIT_COMMIT
+ARG BUILD_DATE
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
+    CMD /usr/bin/care-addon --health || exit 1
+
+# Labels (HA app metadata + build info for traceability)
+LABEL \
+    io.hass.name="Synctacles CARE" \
+    io.hass.description="System diagnostics and AI support" \
+    io.hass.arch="amd64|aarch64|armv7" \
+    io.hass.type="addon" \
+    io.hass.version="${VERSION}" \
+    maintainer="Synctacles <support@synctacles.com>" \
+    org.opencontainers.image.title="Synctacles CARE" \
+    org.opencontainers.image.description="Home Assistant system diagnostics and AI support" \
+    org.opencontainers.image.vendor="Synctacles" \
+    org.opencontainers.image.authors="support@synctacles.com" \
+    org.opencontainers.image.licenses="MIT" \
+    org.opencontainers.image.source="https://github.com/synctacles/ha-apps" \
+    org.opencontainers.image.version="${VERSION}" \
+    org.opencontainers.image.revision="${GIT_COMMIT}" \
+    org.opencontainers.image.created="${BUILD_DATE}"
+
+# Start app
+CMD ["/run.sh"]

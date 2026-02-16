@@ -1,0 +1,17 @@
+# Build artifacts
+binaries/
+*.tar.gz
+
+# Temporary files
+.DS_Store
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+.idea/
+*.sublime-*
+
+# Logs
+*.log
