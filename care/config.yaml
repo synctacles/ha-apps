@@ -1,0 +1,86 @@
+# Synctacles Care - Home Assistant Add-on Configuration
+# https://developers.home-assistant.io/docs/add-ons/configuration
+
+name: "Synctacles Care"
+version: "0.1.0-beta"
+slug: "synctacles_care"
+description: "System diagnostics, cleanup, and AI-powered troubleshooting for Home Assistant"
+url: "https://github.com/synctacles/care-app"
+arch:
+  - amd64
+  - aarch64
+  - armv7
+init: false
+startup: application
+boot: auto
+homeassistant_api: true
+hassio_api: true
+hassio_role: manager
+
+# Icon and branding
+image: "ghcr.io/synctacles/care-app/{arch}"
+
+# Add-on options
+options:
+  api_key: ""
+  license_key: ""
+  ai_api_key: ""
+  notifications_enabled: true
+  scheduled_scan_enabled: false
+  auto_cleanup_enabled: false
+  debug_mode: false
+  demo_mode: false
+  telemetry_enabled: false
+
+# Schema for options validation
+schema:
+  api_key: str?
+  license_key: str?
+  ai_api_key: password?
+  notifications_enabled: bool
+  scheduled_scan_enabled: bool
+  auto_cleanup_enabled: bool
+  debug_mode: bool
+  demo_mode: bool
+  telemetry_enabled: bool
+
+# Web UI
+ingress: true
+ingress_port: 8080
+panel_icon: mdi:hospital-box
+panel_title: "Synctacles Care"
+
+# Resource requirements
+host_network: false
+host_ipc: false
+privileged: []
+full_access: false
+
+# Services
+services:
+  - mqtt:want
+
+# Map host directories (optional, for advanced users)
+map:
+  - config:rw
+
+# Environment
+environment:
+  SYNCTACLES_ENVIRONMENT: "production"
+
+# Documentation
+url: "https://github.com/synctacles/care-app"
+codenotary: "noreply@synctacles.com"
+
+# Changelog
+changelog: |
+  ## 0.1.0-beta
+
+  - Initial beta release
+  - Health scan (A-F score)
+  - Security scan (0-100 score)
+  - Orphan entity detection
+  - Knowledge base search (17,000+ articles)
+  - AI diagnostics (with user's Anthropic API key)
+  - Free tier: All features unlocked
+  - Privacy-focused: Optional telemetry, GDPR-compliant

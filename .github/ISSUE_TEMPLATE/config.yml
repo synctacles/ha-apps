@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Home Assistant Community Forum
+    url: https://community.home-assistant.io/
+    about: Ask questions and discuss with the HA community
+  - name: Documentation
+    url: https://github.com/synctacles/platform/blob/main/README.md
+    about: Read our documentation for setup and troubleshooting
+  - name: Privacy Policy
+    url: https://github.com/synctacles/platform/blob/main/PRIVACY.md
+    about: Read our privacy policy and data practices

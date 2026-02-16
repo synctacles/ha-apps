@@ -1,0 +1,105 @@
+name: Bug Report
+description: Report a bug or unexpected behavior
+title: "[BUG] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug! Please fill out the information below to help us diagnose and fix the issue.
+
+  - type: dropdown
+    id: product
+    attributes:
+      label: Product
+      description: Which Synctacles product is affected?
+      options:
+        - Energy (price optimization)
+        - Care (system maintenance)
+        - Platform (auth service)
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is.
+      placeholder: "When I try to... I expect... but instead..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: How can we reproduce this issue?
+      placeholder: |
+        1. Go to...
+        2. Click on...
+        3. See error...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What did you expect to happen?
+      placeholder: "I expected..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What actually happened?
+      placeholder: "Instead, I got..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Tell us about your setup
+      value: |
+        - **Product Version:** (e.g., Energy v1.2.0)
+        - **Home Assistant Version:** (e.g., 2026.2.1)
+        - **Installation Type:** (OS / Supervised / Container / Core)
+        - **Architecture:** (aarch64 / x86_64 / armv7)
+        - **Browser:** (if applicable)
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant Logs
+      description: Paste any relevant logs here (from Home Assistant → Settings → System → Logs)
+      placeholder: |
+        Logger: homeassistant.components.synctacles_energy
+        Source: ...
+        First occurred: ...
+        Last occurred: ...
+      render: shell
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Add any other context about the problem here (screenshots, configuration, etc.)
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-submission Checklist
+      options:
+        - label: I have searched existing issues to avoid duplicates
+          required: true
+        - label: I have included all relevant environment information
+          required: true
+        - label: I have removed any sensitive information (API keys, passwords, etc.)
+          required: true
