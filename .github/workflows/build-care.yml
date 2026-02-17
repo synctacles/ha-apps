@@ -1,0 +1,144 @@
+name: Build & Publish CARE App
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version (without v prefix, e.g. 0.1.0-beta)'
+        required: true
+        default: '0.1.0-beta'
+      care_app_ref:
+        description: 'care-app git ref (commit, tag, or branch)'
+        required: true
+        default: 'main'
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_BASE: ghcr.io/synctacles
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    strategy:
+      matrix:
+        include:
+          - arch: amd64
+            goarch: amd64
+            goarm: ""
+            base_image: ghcr.io/home-assistant/amd64-base:3.18
+          - arch: aarch64
+            goarch: arm64
+            goarm: ""
+            base_image: ghcr.io/home-assistant/aarch64-base:3.18
+          - arch: armv7
+            goarch: arm
+            goarm: "7"
+            base_image: ghcr.io/home-assistant/armv7-base:3.18
+
+    steps:
+      - name: Checkout ha-apps
+        uses: actions/checkout@v4
+
+      - name: Checkout care-app
+        uses: actions/checkout@v4
+        with:
+          repository: synctacles/care-app
+          ref: ${{ inputs.care_app_ref || 'main' }}
+          path: _src/care-app
+          token: ${{ secrets.REPO_TOKEN }}
+
+      - name: Checkout care-backend
+        uses: actions/checkout@v4
+        with:
+          repository: synctacles/care-backend
+          path: _src/care-backend
+          token: ${{ secrets.REPO_TOKEN }}
+
+      - name: Determine version
+        id: meta
+        run: |
+          if [ "${{ github.event_name }}" = "push" ]; then
+            VERSION="${GITHUB_REF_NAME#v}"
+          else
+            VERSION="${{ inputs.version }}"
+          fi
+          COMMIT=$(cd _src/care-app && git rev-parse HEAD)
+          SHORT=$(cd _src/care-app && git rev-parse --short HEAD)
+          DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "commit=$COMMIT" >> $GITHUB_OUTPUT
+          echo "short=$SHORT" >> $GITHUB_OUTPUT
+          echo "date=$DATE" >> $GITHUB_OUTPUT
+
+          echo "Building CARE v${VERSION} from ${SHORT} for ${{ matrix.arch }}"
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.24'
+          cache-dependency-path: _src/care-app/go.sum
+
+      - name: Build Go binary
+        working-directory: _src/care-app
+        env:
+          CGO_ENABLED: "0"
+          GOOS: linux
+          GOARCH: ${{ matrix.goarch }}
+          GOARM: ${{ matrix.goarm }}
+        run: |
+          go build -trimpath \
+            -ldflags="-s -w \
+              -X main.version=${{ steps.meta.outputs.version }} \
+              -X main.commit=${{ steps.meta.outputs.commit }} \
+              -X main.buildDate=${{ steps.meta.outputs.date }}" \
+            -o $GITHUB_WORKSPACE/care/care-addon \
+            ./cmd/care-addon
+
+          echo "Binary size: $(du -h $GITHUB_WORKSPACE/care/care-addon | cut -f1)"
+
+      - name: Login to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push Docker image
+        working-directory: care
+        run: |
+          VERSION="${{ steps.meta.outputs.version }}"
+          ARCH="${{ matrix.arch }}"
+          IMAGE="${{ env.IMAGE_BASE }}/${ARCH}-care"
+
+          # Build image using the pre-compiled binary
+          docker build \
+            --build-arg BUILD_FROM=${{ matrix.base_image }} \
+            --build-arg VERSION="${VERSION}" \
+            --build-arg GIT_COMMIT="${{ steps.meta.outputs.commit }}" \
+            --build-arg BUILD_DATE="${{ steps.meta.outputs.date }}" \
+            -f Dockerfile.ci \
+            -t "${IMAGE}:${VERSION}" \
+            -t "${IMAGE}:latest" \
+            .
+
+          # Push both tags
+          docker push "${IMAGE}:${VERSION}"
+          docker push "${IMAGE}:latest"
+
+          echo "Pushed: ${IMAGE}:${VERSION}"
+          echo "Pushed: ${IMAGE}:latest"
+
+      - name: Verify image
+        run: |
+          IMAGE="${{ env.IMAGE_BASE }}/${{ matrix.arch }}-care"
+          echo "Image labels:"
+          docker inspect "${IMAGE}:${{ steps.meta.outputs.version }}" \
+            --format='{{range $k,$v := .Config.Labels}}{{$k}}={{$v}}{{println}}{{end}}' \
+            | grep -E "version|revision|created" || true

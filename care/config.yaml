@@ -1,4 +1,4 @@
-# Synctacles Care - Home Assistant Add-on Configuration
+# Synctacles Care - Home Assistant App Configuration
 # https://developers.home-assistant.io/docs/add-ons/configuration
 
 name: "Synctacles Care"
@@ -17,10 +17,10 @@ homeassistant_api: true
 hassio_api: true
 hassio_role: manager
 
-# Icon and branding
-image: "ghcr.io/synctacles/care-app/{arch}"
+# Docker image on GHCR (HA Supervisor replaces {arch} with amd64/aarch64/armv7)
+image: "ghcr.io/synctacles/{arch}-care"
 
-# Add-on options
+# App options
 options:
   api_key: ""
   license_key: ""
@@ -67,10 +67,6 @@ map:
 # Environment
 environment:
   SYNCTACLES_ENVIRONMENT: "production"
-
-# Documentation
-url: "https://github.com/synctacles/care-app"
-codenotary: "noreply@synctacles.com"
 
 # Changelog
 changelog: |

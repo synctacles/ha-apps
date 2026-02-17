@@ -1,0 +1,48 @@
+###############################################
+# Synctacles CARE - CI/CD Docker Build       #
+# Used by GitHub Actions workflow             #
+# Expects pre-compiled binary in build context#
+###############################################
+
+ARG BUILD_FROM=ghcr.io/home-assistant/amd64-base:3.18
+
+FROM ${BUILD_FROM}
+
+# Install runtime dependencies (bashio for HA config bridge)
+RUN apk add --no-cache bash
+
+# Copy pre-compiled static Go binary
+COPY care-addon /usr/bin/care-addon
+
+# Copy entrypoint script
+COPY run.sh /
+
+# Set permissions
+RUN chmod +x /run.sh /usr/bin/care-addon
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
+    CMD /usr/bin/care-addon --health || exit 1
+
+# Build metadata (passed as build args)
+ARG VERSION=dev
+ARG GIT_COMMIT=unknown
+ARG BUILD_DATE=unknown
+
+LABEL \
+    io.hass.name="Synctacles CARE" \
+    io.hass.description="System diagnostics and AI support" \
+    io.hass.arch="${TARGETARCH}" \
+    io.hass.type="addon" \
+    io.hass.version="${VERSION}" \
+    maintainer="Synctacles <support@synctacles.com>" \
+    org.opencontainers.image.title="Synctacles CARE" \
+    org.opencontainers.image.description="Home Assistant system diagnostics and AI support" \
+    org.opencontainers.image.vendor="Synctacles" \
+    org.opencontainers.image.licenses="MIT" \
+    org.opencontainers.image.source="https://github.com/synctacles/ha-apps" \
+    org.opencontainers.image.version="${VERSION}" \
+    org.opencontainers.image.revision="${GIT_COMMIT}" \
+    org.opencontainers.image.created="${BUILD_DATE}"
+
+CMD ["/run.sh"]
