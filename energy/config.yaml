@@ -1,0 +1,53 @@
+name: "Synctacles Energy"
+version: "0.1.0-beta"
+slug: "synctacles_energy"
+description: "EU electricity prices with GO/WAIT/AVOID recommendations for 30 bidding zones"
+url: "https://github.com/synctacles/energy-app"
+documentation: "https://github.com/synctacles/energy-app/blob/main/DOCS.md"
+arch:
+  - amd64
+  - aarch64
+  - armv7
+image: "ghcr.io/synctacles/{arch}-energy"
+ingress: true
+ingress_port: 8098
+panel_icon: "mdi:lightning-bolt"
+panel_title: "Synctacles Energy"
+homeassistant_api: true
+hassio_api: true
+init: false
+options:
+  zone: "NL"
+  go_threshold: -15
+  avoid_threshold: 20
+  best_window_hours: 3
+  enever_enabled: false
+  enever_token: ""
+  enever_leverancier: "frank"
+  coefficient: 0
+  power_sensor: ""
+  synctacles_url: ""
+  debug_mode: false
+schema:
+  zone: str
+  go_threshold: float
+  avoid_threshold: float
+  best_window_hours: "int(1,8)"
+  coefficient: "float?"
+  enever_enabled: bool
+  enever_token: "str?"
+  enever_leverancier: "str?"
+  power_sensor: "str?"
+  synctacles_url: "str?"
+  debug_mode: bool
+changelog: |
+  ## 0.1.0-beta
+  - Initial public beta release
+  - Real-time EU electricity prices (30 bidding zones)
+  - GO/WAIT/AVOID action recommendations
+  - Price forecasts and trend analysis
+  - Best charging window detection
+  - Multi-country support (NL, DE, BE, AT, FR, ES, NO, SE, DK)
+  - Local fallback with cached data (offline capable)
+  - Enever integration (NL suppliers)
+  - Free — all features unlocked

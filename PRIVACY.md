@@ -34,19 +34,33 @@ If you choose to verify your email address, we collect:
 **Legal Basis:** Consent (GDPR Article 6(1)(a))
 **Purpose:** Email verification enables optional features like error notifications and product updates.
 
-### 2.2 Optional Usage Telemetry
+### 2.2 Anonymous Install Heartbeat (default: enabled)
 
-If you opt-in to telemetry, we collect:
+When you enable "Anonymous install counting" in the app settings (enabled by default), we collect:
 - **Installation ID** (randomly generated UUID, not linked to you personally)
+- **Product name** (e.g., "energy" or "care")
+- **App version** (e.g., "1.3.1")
+- **System architecture** (e.g., "aarch64", "x86_64")
+
+**This is the only data we collect by default.** It contains no personal information — only 4 anonymous fields to count active installations and supported architectures.
+
+**Legal Basis:** Consent (GDPR Article 6(1)(a))
+**Purpose:** Count active installations, monitor version adoption, and ensure architecture support.
+**How to disable:** Set "heartbeat_enabled" to false in the app settings. Note: disabling this will limit access to remote features (KB search, price forecasts, etc.) because we cannot verify your installation.
+
+### 2.3 Optional Usage Telemetry
+
+If you additionally opt-in to telemetry, we collect more detailed (but still anonymous) data:
+- **Installation ID** (same UUID as heartbeat)
 - **Product version** (e.g., "Energy v1.2.0")
 - **System information** (e.g., "Home Assistant OS on aarch64")
 - **Usage statistics** (e.g., "uptime: 7-30 days", "cache hit rate: >90%")
 - **IP address** (for rate limiting and abuse prevention)
 
 **Legal Basis:** Consent (GDPR Article 6(1)(a))
-**Purpose:** Improve addon stability, prioritize bug fixes, and optimize performance.
+**Purpose:** Improve app stability, prioritize bug fixes, and optimize performance.
 
-### 2.3 Optional User Feedback
+### 2.4 Optional User Feedback
 
 If you submit feedback via our addon, we collect:
 - **Rating** (1-5 stars)
@@ -59,7 +73,7 @@ If you submit feedback via our addon, we collect:
 
 **Note:** Bug reports may automatically create GitHub Issues in our public repository. Do not include personal information in bug reports.
 
-### 2.4 What We DO NOT Collect
+### 2.5 What We DO NOT Collect
 
 - ❌ **No tracking cookies** (we don't track you across websites)
 - ❌ **No analytics** (Google Analytics, etc.)
@@ -106,6 +120,7 @@ If you submit feedback via our addon, we collect:
 ### Data Retention
 
 - **Email addresses:** Retained until you request deletion
+- **Heartbeat data:** Automatically deleted after 90 days of inactivity
 - **Telemetry:** Automatically deleted after 90 days of inactivity
 - **Bug reports:** Retained indefinitely in GitHub (public record)
 

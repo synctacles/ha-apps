@@ -2,6 +2,8 @@
 
 **All Features Free • No Registration Required • Privacy-Focused**
 
+> ⚠️ **Beta Release** — These apps are in public beta. Feedback welcome via [GitHub Issues](https://github.com/synctacles/ha-apps/issues).
+
 Official Home Assistant apps for Synctacles products.
 
 ---
@@ -28,16 +30,20 @@ Proactive system diagnostics, cleanup, and AI-powered troubleshooting for Home A
 
 ### ⚡ ENERGY - Price Optimization
 
-**Status:** 🔜 Coming Soon
+**Status:** 🚧 Beta (v0.1.0-beta)
 
 Real-time electricity price tracking and optimization for NL and EU countries.
 
-**Planned Features:**
+**Features:**
 - ⚡ Live electricity prices (updated hourly)
 - 💰 Best charging windows (cheapest hours)
 - 🎯 Energy action recommendations (GO/WAIT/AVOID)
-- 📊 Forecasts and trends
+- 📊 Forecasts and price trends
 - 🌍 Multi-country support (NL, DE, BE, AT, FR, ES, NO, SE, DK)
+- 🔋 Local fallback — works offline with cached data
+- 🆓 100% free - All features unlocked
+
+**[→ Install ENERGY](energy/)**
 
 ---
 
