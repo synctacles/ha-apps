@@ -21,6 +21,9 @@ options:
   go_threshold: -15
   avoid_threshold: 20
   best_window_hours: 3
+  license_key: ""
+  alerts_enabled: false
+  alert_threshold: 0.0
   enever_enabled: false
   enever_token: ""
   enever_leverancier: "frank"
@@ -33,6 +36,9 @@ schema:
   go_threshold: float
   avoid_threshold: float
   best_window_hours: "int(1,8)"
+  license_key: "str?"
+  alerts_enabled: bool
+  alert_threshold: "float?"
   coefficient: "float?"
   enever_enabled: bool
   enever_token: "str?"
@@ -44,10 +50,12 @@ changelog: |
   ## 0.1.0-beta
   - Initial public beta release
   - Real-time EU electricity prices (30 bidding zones)
-  - GO/WAIT/AVOID action recommendations
+  - GO/WAIT/AVOID action recommendations with feature gate
   - Price forecasts and trend analysis
   - Best charging window detection
   - Multi-country support (NL, DE, BE, AT, FR, ES, NO, SE, DK)
   - Local fallback with cached data (offline capable)
-  - Enever integration (NL suppliers)
-  - Free — all features unlocked
+  - Enever integration (NL suppliers, consumer prices)
+  - Price alerts via HA notification (configurable threshold)
+  - Free — prices & dashboard always available
+  - Actions & tomorrow preview: free with Synctacles account
