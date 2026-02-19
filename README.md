@@ -130,7 +130,7 @@ MIT License - See [LICENSE](LICENSE)
 
 ---
 
-**Built with ❤️ by Synctacles (DATADIO)**
+**Built with ❤️ by Synctacles**
 
 ---
 
