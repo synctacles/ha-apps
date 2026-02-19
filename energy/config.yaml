@@ -1,5 +1,5 @@
 name: "Synctacles Energy"
-version: "0.2.0-beta"
+version: "0.2.1-beta"
 slug: "synctacles_energy"
 description: "EU electricity prices with GO/WAIT/AVOID recommendations for 30 bidding zones"
 url: "https://github.com/synctacles/energy-app"
@@ -49,6 +49,11 @@ schema:
   synctacles_url: "str?"
   debug_mode: bool
 changelog: |
+  ## 0.2.1-beta
+  - Enever API key altijd zichtbaar voor NL-plannen (was verborgen)
+  - Enever leveranciers alleen getoond in dropdown als token is ingevuld
+  - Enever als primaire bron wanneer leverancier geselecteerd (boven Synctacles)
+  - Afgeleide velden (zone, enever) automatisch opgeslagen bij plan-wissel
   ## 0.2.0-beta
   - Plan selector: one-click setup for 30+ countries and 24 NL suppliers
   - Renamed "Addon" to "App" throughout the UI
