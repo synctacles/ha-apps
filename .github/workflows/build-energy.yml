@@ -144,13 +144,13 @@ jobs:
 
       - name: Make package public
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
         run: |
           gh api --method PATCH \
             /orgs/synctacles/packages/container/${{ matrix.arch }}-energy \
             -f visibility=public \
             && echo "Package ${{ matrix.arch }}-energy set to public" \
-            || echo "Warning: could not set visibility (may need manual action)"
+            || echo "Warning: PACKAGES_TOKEN missing or insufficient — set package public manually"
 
       - name: Verify image
         run: |
