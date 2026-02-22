@@ -2,7 +2,7 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration
 
 name: "Synctacles Care"
-version: "0.1.0-beta"
+version: "0.2.0-beta"
 slug: "synctacles_care"
 description: "System diagnostics, cleanup, and AI-powered troubleshooting for Home Assistant"
 url: "https://github.com/synctacles/care-app"
@@ -70,6 +70,13 @@ environment:
 
 # Changelog
 changelog: |
+  ## 0.2.0-beta
+  - BYOK AI: use your own Anthropic API key for AI diagnostics
+  - Synctacles Radar: silent error fingerprinting (Phase 1)
+  - Full environment snapshot sent with radar data
+  - Auth/license dependencies removed (all features free)
+  - Backend URL updated to Cloudflare Worker (api.synctacles.com)
+  - Decoupled from care-backend WebSocket relay
   ## 0.1.0-beta
 
   - Initial beta release
