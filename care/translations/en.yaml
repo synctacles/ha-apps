@@ -1,0 +1,30 @@
+configuration:
+  ai_api_key:
+    name: Anthropic API Key
+    description: >-
+      Your personal Anthropic API key for AI-powered diagnostics.
+      Get one at console.anthropic.com. Leave empty to disable AI features.
+      Your key is stored locally and never shared.
+  notifications_enabled:
+    name: Notifications
+    description: >-
+      Send Home Assistant notifications when issues are detected during scans.
+  scheduled_scan_enabled:
+    name: Scheduled Scans
+    description: >-
+      Automatically run health and security scans on a daily schedule.
+  auto_cleanup_enabled:
+    name: Auto Cleanup
+    description: >-
+      Automatically remove orphaned entities found during scheduled scans.
+      Only works when scheduled scans are enabled.
+  telemetry_enabled:
+    name: Anonymous Telemetry
+    description: >-
+      Send anonymous usage statistics to help improve Synctacles Care.
+      No personal data or API keys are ever transmitted.
+  debug_mode:
+    name: Debug Mode
+    description: >-
+      Enable verbose logging for troubleshooting. Only enable when
+      reporting issues to the developers.

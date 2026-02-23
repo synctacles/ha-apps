@@ -22,27 +22,21 @@ image: "ghcr.io/synctacles/{arch}-care"
 
 # App options
 options:
-  api_key: ""
-  license_key: ""
   ai_api_key: ""
   notifications_enabled: true
   scheduled_scan_enabled: false
   auto_cleanup_enabled: false
-  debug_mode: false
-  demo_mode: false
   telemetry_enabled: false
+  debug_mode: false
 
 # Schema for options validation
 schema:
-  api_key: str?
-  license_key: str?
   ai_api_key: password?
   notifications_enabled: bool
   scheduled_scan_enabled: bool
   auto_cleanup_enabled: bool
-  debug_mode: bool
-  demo_mode: bool
   telemetry_enabled: bool
+  debug_mode: bool
 
 # Web UI
 ingress: true

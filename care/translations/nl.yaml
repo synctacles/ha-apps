@@ -1,0 +1,30 @@
+configuration:
+  ai_api_key:
+    name: Anthropic API-sleutel
+    description: >-
+      Je persoonlijke Anthropic API-sleutel voor AI-diagnostiek.
+      Maak er een aan op console.anthropic.com. Laat leeg om AI-functies uit te schakelen.
+      Je sleutel wordt lokaal opgeslagen en nooit gedeeld.
+  notifications_enabled:
+    name: Meldingen
+    description: >-
+      Stuur Home Assistant meldingen wanneer problemen worden gevonden tijdens scans.
+  scheduled_scan_enabled:
+    name: Geplande scans
+    description: >-
+      Voer automatisch dagelijks gezondheids- en beveiligingsscans uit.
+  auto_cleanup_enabled:
+    name: Automatisch opruimen
+    description: >-
+      Verwijder automatisch verweesde entiteiten die tijdens geplande scans worden gevonden.
+      Werkt alleen wanneer geplande scans zijn ingeschakeld.
+  telemetry_enabled:
+    name: Anonieme telemetrie
+    description: >-
+      Stuur anonieme gebruiksstatistieken om Synctacles Care te verbeteren.
+      Er worden nooit persoonlijke gegevens of API-sleutels verzonden.
+  debug_mode:
+    name: Foutopsporingsmodus
+    description: >-
+      Schakel uitgebreide logging in voor probleemoplossing. Alleen inschakelen
+      wanneer je problemen meldt aan de ontwikkelaars.
