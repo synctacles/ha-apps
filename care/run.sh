@@ -7,7 +7,6 @@ export SYNCTACLES_AI_API_KEY="$(bashio::config 'ai_api_key' '')"
 export NOTIFICATIONS_ENABLED="$(bashio::config 'notifications_enabled' 'true')"
 export SCHEDULED_SCAN_ENABLED="$(bashio::config 'scheduled_scan_enabled' 'false')"
 export AUTO_CLEANUP_ENABLED="$(bashio::config 'auto_cleanup_enabled' 'false')"
-export TELEMETRY_ENABLED="$(bashio::config 'telemetry_enabled' 'false')"
 export DEBUG_MODE="$(bashio::config 'debug_mode' 'false')"
 
 exec /usr/bin/care-addon
