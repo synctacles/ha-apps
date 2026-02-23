@@ -2,7 +2,7 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration
 
 name: "Synctacles Care"
-version: "0.2.1-beta"
+version: "0.2.2-beta"
 slug: "synctacles_care"
 description: "System diagnostics, cleanup, and AI-powered troubleshooting for Home Assistant"
 url: "https://github.com/synctacles/care-app"
@@ -64,6 +64,14 @@ environment:
 
 # Changelog
 changelog: |
+  ## 0.2.2-beta
+  - New 6-tab dashboard with dark mode and 8-language support
+  - AI model selection: choose between Haiku, Sonnet, or Opus
+  - Dedicated Feedback tab with structured bug reports
+  - Knowledge Base search with rate limiting
+  - Fixed KB search and category display
+  - Removed unused config options (api_key, license_key)
+  - Config descriptions in English and Dutch
   ## 0.2.0-beta
   - BYOK AI: use your own Anthropic API key for AI diagnostics
   - Synctacles Radar: silent error fingerprinting (Phase 1)
