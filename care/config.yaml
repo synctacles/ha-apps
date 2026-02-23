@@ -2,7 +2,7 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration
 
 name: "Synctacles Care"
-version: "0.3.0-rc1"
+version: "0.3.0-rc2"
 slug: "synctacles_care"
 description: "System diagnostics, cleanup, and AI-powered troubleshooting for Home Assistant"
 url: "https://github.com/synctacles/care-app"
@@ -62,6 +62,11 @@ environment:
 
 # Changelog
 changelog: |
+  ## 0.3.0-rc2
+  - Fixed: Disclaimer modal centering
+  - Fixed: Changelog not loading in About tab
+  - Fixed: AI tab blank after first use (status race condition)
+  - Updated: Documentation with current features
   ## 0.3.0-rc1
   - Disclaimer/liability notice on first install (8 languages)
   - About tab with app info, features, changelog
