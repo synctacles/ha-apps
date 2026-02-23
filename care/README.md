@@ -1,43 +1,35 @@
-# Synctacles CARE - Home Assistant Addon Build
+# Synctacles CARE - Home Assistant App
 
-**Version:** 0.1.1-beta
-**Build Strategy:** Local pre-built binaries (private repo, full control, multi-arch)
+**Version:** 0.3.0-rc4
+
+System diagnostics, AI-powered troubleshooting, and Config Doctor for Home Assistant.
+All features are 100% free with no registration required.
 
 ## Features
 
-- 🏥 **Health Scan** - A-F grading system
-- 🔒 **Security Scan** - Vulnerability detection
-- 🗑️ **Cleanup** - Orphan entity removal
-- 📚 **KB Search** - Access 17,748+ support articles (NEW in 0.1.1)
-- 🤖 **AI Support** - BYOK Anthropic integration
-- 🌐 **Multi-arch** - amd64, arm64, armv7
+- **Health Scan** - A-F grading system (database, integrations, sensors, recorder, logs)
+- **Security Scan** - Vulnerability detection with 0-100 score
+- **Cleanup** - Orphan entity removal with resource-aware chunked deletion
+- **KB Search** - Access 19,000+ Home Assistant support articles
+- **AI Assist** - BYOK Anthropic integration with Diagnose, Config Doctor, and Builder
+- **Config Doctor** - AI-powered automation analysis with one-click fix and rollback
+- **Synctacles Radar** - Silent error fingerprinting & community pattern matching
+- **Feedback Loop** - Report bugs and get notified when they're resolved
+- **Multi-arch** - amd64, arm64, armv7
 
-## Quick Start
+## Build
 
-```bash
-# 1. Build binaries (amd64, arm64, armv7)
-VERSION=0.1.1-beta ./build-binaries.sh
+Images are built via GitHub Actions and published to GHCR:
 
-# 2. Build Docker images
-VERSION=0.1.1-beta ./build-docker.sh
-
-# 3. Test
-docker run --rm synctacles/care-app:0.1.1-beta /usr/bin/care-addon --version
-
-# 4. Test KB endpoints
-docker run -d -p 8100:8099 -e CARE_API_URL=https://care.synctacles.com synctacles/care-app:0.1.1-beta
-curl "http://localhost:8100/api/kb/search?query=automation"
+```
+ghcr.io/synctacles/amd64-care:VERSION
+ghcr.io/synctacles/aarch64-care:VERSION
+ghcr.io/synctacles/armv7-care:VERSION
 ```
 
 ## Files
 
-- `build-binaries.sh` — Builds Go binaries for all architectures
-- `build-docker.sh` — Builds Docker images using pre-built binaries
-- `Dockerfile.local` — Multi-arch Dockerfile (copies local binaries)
-- `config.yaml` — HA addon metadata
-- `run.sh` — Container entrypoint
-- `binaries/` — Compiled binaries (gitignored)
-
-## Full Documentation
-
-See `BUILD.md` for complete build documentation.
+- `config.yaml` - HA app metadata + changelog
+- `DOCS.md` - User-facing documentation (shown in HA Documentation tab)
+- `translations/` - Configuration option translations (en, nl)
+- `icon.png` / `logo.png` - App branding

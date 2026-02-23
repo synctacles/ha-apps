@@ -2,7 +2,7 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration
 
 name: "Synctacles Care"
-version: "0.3.0-rc3"
+version: "0.3.0-rc4"
 slug: "synctacles_care"
 description: "System diagnostics, cleanup, and AI-powered troubleshooting for Home Assistant"
 url: "https://github.com/synctacles/care-app"
@@ -62,6 +62,9 @@ environment:
 
 # Changelog
 changelog: |
+  ## 0.3.0-rc4
+  - Fixed: README/Info page updated (was showing 0.1.1-beta)
+  - Fixed: Build now uses correct source branch (rc3 code was never deployed)
   ## 0.3.0-rc3
   - NEW: AI Assist hub with Diagnose, Config Doctor, and Builder
   - NEW: Config Doctor — AI-powered automation analysis with fix, backup, and rollback
