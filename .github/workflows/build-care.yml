@@ -158,3 +158,39 @@ jobs:
           docker manifest inspect "${IMAGE}:${{ steps.meta.outputs.version }}" \
             | python3 -c "import sys,json; m=json.load(sys.stdin); print('digest:', m.get('config',{}).get('digest','?')[:20])" \
             || true
+
+  update-config:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout ha-apps
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Determine version
+        id: meta
+        run: |
+          if [ "${{ github.event_name }}" = "push" ]; then
+            VERSION="${GITHUB_REF_NAME#v}"
+          else
+            VERSION="${{ inputs.version }}"
+          fi
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Update config.yaml version
+        run: |
+          VERSION="${{ steps.meta.outputs.version }}"
+          sed -i "s/^version: .*/version: \"${VERSION}\"/" care/config.yaml
+          echo "Updated care/config.yaml to version ${VERSION}"
+
+      - name: Commit and push
+        run: |
+          git config user.name "synctacles-bot"
+          git config user.email "synctacles-bot@users.noreply.github.com"
+          git add care/config.yaml
+          git diff --cached --quiet && echo "No changes to commit" && exit 0
+          git commit -m "chore: bump care app version to ${{ steps.meta.outputs.version }}"
+          git push
