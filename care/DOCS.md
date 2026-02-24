@@ -36,15 +36,49 @@ Comprehensive system health analysis with A-F scoring:
 
 ### Security Scan
 
-Security assessment with 0-100 scoring (7-point check):
+Security assessment with 0-100 scoring (8-point check):
 
-- 2FA enabled
-- SSL/HTTPS active
-- HA version current
-- Trusted networks safe
-- IP ban enabled
-- Login attempts limited
-- Apps up to date
+| Check | Weight | What it detects |
+|---|---|---|
+| Two-Factor Authentication | 25% | TOTP 2FA active for all users |
+| SSL/HTTPS | 20% | Valid certificate + HTTPS configured |
+| HA Version | 10% | Running latest Home Assistant Core |
+| **Core Auto-Update** | **10%** | **Auto-updates enabled (see below)** |
+| Add-ons up to date | 10% | All installed apps have latest version |
+| Trusted Networks | 10% | No dangerous CIDR blocks (0.0.0.0/0) |
+| IP Ban Protection | 10% | Brute-force IP banning active |
+| Login Attempt Threshold | 5% | Max failed logins before ban |
+
+#### Why Core Auto-Update matters
+
+Home Assistant Core does **not** auto-update by default. Most users don't realize this. The consequences of a disabled auto-update setting are significant:
+
+**Security risks**
+- Known vulnerabilities remain unpatched indefinitely
+- Authentication bypasses and exploits from older versions stay active
+- Security advisories from Nabu Casa are not applied automatically
+
+**Integration breakage**
+- Integrations depend on Core APIs that change between versions
+- A stuck Core version causes integrations to silently fail or crash
+- Example: DSMR/P1 energy meters stopped reporting data — the fix was in 2026.2.3, but users stuck on 2026.2.2 never received it
+
+**Ecosystem drift**
+- HACS components require minimum Core versions
+- Blueprints and automations may use features not available on older versions
+- Community support assumes the latest version — outdated users receive wrong advice
+
+**Cascade effect**
+- One missed update leads to multiple missed updates
+- The longer you wait, the higher the risk of breaking changes during a manual update
+- Database migrations accumulate, increasing update time and failure risk
+
+**How Care checks this**
+- Green: auto-updates enabled — you're protected
+- Orange (severity: low): auto-updates disabled, currently up to date — risk is low but you may miss future patches
+- Red (severity: medium): auto-updates disabled **and** an update is waiting — security patches are not being applied right now
+
+**Fix:** Go to Settings → System → Updates → enable "Automatically update Home Assistant Core"
 
 ### Orphan Detection & Cleanup
 
