@@ -2,7 +2,7 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration
 
 name: "Synctacles Care"
-version: "0.3.0-rc7"
+version: "0.3.0-rc8"
 slug: "synctacles_care"
 description: "System diagnostics, cleanup, and AI-powered troubleshooting for Home Assistant"
 url: "https://github.com/synctacles/care-app"
@@ -62,6 +62,11 @@ environment:
 
 # Changelog
 changelog: |
+  ## 0.3.0-rc8
+  - NEW: Shared breadcrumb navigation — always shows current section (AI Assist › Diagnose / Config Doctor › item)
+  - Fixed: Diagnose blank screen after stale session — form now resets correctly on navigation
+  - NEW: Config Doctor category tabs — Automations active, Blueprints/Dashboards coming soon
+  - UX: Cleanup backups button moved to breadcrumb bar — accessible from all Config Doctor steps
   ## 0.3.0-rc7
   - NEW: Interactive AI chat — ask follow-up questions instead of single-turn sessions
   - NEW: Multi-turn conversation with full message history
