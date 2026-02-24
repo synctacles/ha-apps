@@ -62,13 +62,6 @@ jobs:
           path: _src/care-app
           token: ${{ secrets.REPO_TOKEN }}
 
-      - name: Checkout care-backend
-        uses: actions/checkout@v4
-        with:
-          repository: synctacles/care-backend
-          path: _src/care-backend
-          token: ${{ secrets.REPO_TOKEN }}
-
       - name: Determine version
         id: meta
         run: |
