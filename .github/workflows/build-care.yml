@@ -173,11 +173,16 @@ jobs:
           fi
           echo "version=$VERSION" >> $GITHUB_OUTPUT
 
-      - name: Update config.yaml version
+      - name: Update config.yaml version (stable releases only)
         run: |
           VERSION="${{ steps.meta.outputs.version }}"
-          sed -i "s/^version: .*/version: \"${VERSION}\"/" care/config.yaml
-          echo "Updated care/config.yaml to version ${VERSION}"
+          if echo "$VERSION" | grep -qE '(-rc|-beta|-alpha)'; then
+            echo "Skipping config bump for pre-release: ${VERSION}"
+            echo "Image is available at ghcr.io/synctacles/{arch}-care:${VERSION} for manual testing"
+          else
+            sed -i "s/^version: .*/version: \"${VERSION}\"/" care/config.yaml
+            echo "Updated care/config.yaml to version ${VERSION}"
+          fi
 
       - name: Commit and push
         run: |
