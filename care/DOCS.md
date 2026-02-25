@@ -293,4 +293,4 @@ A silent background pipeline that detects errors in your HA logs, fingerprints t
 
 ---
 
-**Built by Synctacles**
+**Gemaakt met ❤️ op Madeira**

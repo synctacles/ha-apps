@@ -48,4 +48,4 @@
 
 ---
 
-**Built with ❤️ by Synctacles**
+**Gemaakt met ❤️ op Madeira**

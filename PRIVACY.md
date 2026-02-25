@@ -17,9 +17,9 @@ Synctacles provides free Home Assistant addons for energy optimization and syste
 
 ## 1. Data Controller
 
-**Name:** Synctacles (DATADIO)
+**Name:** Synctacles
 **Contact:** support@synctacles.com
-**Location:** Netherlands
+**Location:** Madeira, Portugal
 
 ---
 
