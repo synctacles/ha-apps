@@ -18,11 +18,13 @@ configuration:
     description: >-
       Automatically remove orphaned entities found during scheduled scans.
       Only works when scheduled scans are enabled.
-  telemetry_enabled:
-    name: Anonymous Telemetry
+  autonomous_mode_enabled:
+    name: Autonomous AI Mode
     description: >-
-      Send anonymous usage statistics to help improve Synctacles Care.
-      No personal data or API keys are ever transmitted.
+      Allow AI to execute actions WITHOUT manual approval per step.
+      Safety limits apply: max 15 minutes per session, max 20 actions.
+      Dangerous operations (restart, shutdown, purge) are always blocked.
+      Only enable if you understand the implications.
   debug_mode:
     name: Debug Mode
     description: >-

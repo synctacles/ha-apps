@@ -28,8 +28,6 @@ options:
   auto_cleanup_enabled: false
   autonomous_mode_enabled: false
   debug_mode: false
-  demo_mode: false
-  telemetry_enabled: false
 
 # Schema for options validation
 schema:
@@ -39,8 +37,6 @@ schema:
   auto_cleanup_enabled: bool
   autonomous_mode_enabled: bool
   debug_mode: bool
-  demo_mode: bool
-  telemetry_enabled: bool
 
 # Web UI
 ingress: true

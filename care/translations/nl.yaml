@@ -18,11 +18,13 @@ configuration:
     description: >-
       Verwijder automatisch verweesde entiteiten die tijdens geplande scans worden gevonden.
       Werkt alleen wanneer geplande scans zijn ingeschakeld.
-  telemetry_enabled:
-    name: Anonieme telemetrie
+  autonomous_mode_enabled:
+    name: Autonome AI-modus
     description: >-
-      Stuur anonieme gebruiksstatistieken om Synctacles Care te verbeteren.
-      Er worden nooit persoonlijke gegevens of API-sleutels verzonden.
+      Sta AI toe om acties uit te voeren ZONDER handmatige goedkeuring per stap.
+      Veiligheidslimieten zijn actief: max 15 minuten per sessie, max 20 acties.
+      Gevaarlijke operaties (herstarten, afsluiten, wissen) worden altijd geblokkeerd.
+      Schakel alleen in als je de gevolgen begrijpt.
   debug_mode:
     name: Foutopsporingsmodus
     description: >-
