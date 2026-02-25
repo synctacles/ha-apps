@@ -1,5 +1,5 @@
 name: "Synctacles Energy"
-version: "0.3.0-beta"
+version: "0.3.1-beta"
 slug: "synctacles_energy"
 description: "EU electricity prices with GO/WAIT/AVOID recommendations for 30 bidding zones"
 url: "https://github.com/synctacles/energy-app"
@@ -51,6 +51,9 @@ schema:
   synctacles_url: "str?"
   debug_mode: bool
 changelog: |
+  ## 0.3.1-beta
+  - Fix MQTT discovery topic for binary_sensor (cheap hour) — illegaal topic veroorzaakte HA log spam
+  - Privacy notice modal bij eerste start
   ## 0.3.0-beta
   - MQTT auto-reconnect on broken pipe and connection loss
   - Auth/license gates removed (all features free, no account needed)
