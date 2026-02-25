@@ -2,7 +2,7 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration
 
 name: "Synctacles Care"
-version: "0.3.0-rc21"
+version: "0.3.0-rc22"
 slug: "synctacles_care"
 description: "System diagnostics, cleanup, and AI-powered troubleshooting for Home Assistant"
 url: "https://github.com/synctacles/care-app"
@@ -64,6 +64,9 @@ environment:
 
 # Changelog
 changelog: |
+  ## 0.3.0-rc22
+  - Radar: structural WARNINGs nu ook gefingerprint (illegal MQTT topics, config errors, setup failures)
+  - Radar: nieuw error class illegal_topic → SignalIntegration (hoogste prioriteit)
   ## 0.3.0-rc9
   - NEW: AI batch recipes — AI proposes HA service calls, you review & approve before execution
   - NEW: Autonomous mode — AI acts independently within strict time & action limits (opt-in)
