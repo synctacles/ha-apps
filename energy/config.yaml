@@ -1,5 +1,5 @@
 name: "Synctacles Energy"
-version: "0.3.2-beta"
+version: "0.3.3-beta"
 slug: "synctacles_energy"
 description: "EU electricity prices with GO/WAIT/AVOID recommendations for 30 bidding zones"
 url: "https://github.com/synctacles/energy-app"
@@ -47,6 +47,8 @@ schema:
   power_sensor: "str?"
   debug_mode: bool
 changelog: |
+  ## 0.3.3-beta
+  - Fix MQTT broken pipe: keep-alive disabled + auto-reconnect op write-fouten
   ## 0.3.2-beta
   - Synctacles server volledig verwijderd uit de prijsketen — app is nu 100% autonoom
   - Alle features (acties, morgen-preview, automations) werken zonder account of registratie
