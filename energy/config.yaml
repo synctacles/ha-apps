@@ -1,5 +1,5 @@
 name: "Synctacles Energy"
-version: "0.3.1-beta"
+version: "0.3.2-beta"
 slug: "synctacles_energy"
 description: "EU electricity prices with GO/WAIT/AVOID recommendations for 30 bidding zones"
 url: "https://github.com/synctacles/energy-app"
@@ -24,7 +24,6 @@ options:
   go_threshold: -15
   avoid_threshold: 20
   best_window_hours: 3
-  license_key: ""
   alerts_enabled: false
   alert_threshold: 0.0
   enever_enabled: false
@@ -32,7 +31,6 @@ options:
   enever_leverancier: "frank"
   coefficient: 0
   power_sensor: ""
-  synctacles_url: ""
   debug_mode: false
 schema:
   plan: "str?"
@@ -40,7 +38,6 @@ schema:
   go_threshold: float
   avoid_threshold: float
   best_window_hours: "int(1,8)"
-  license_key: "str?"
   alerts_enabled: bool
   alert_threshold: "float?"
   coefficient: "float?"
@@ -48,9 +45,12 @@ schema:
   enever_token: "str?"
   enever_leverancier: "str?"
   power_sensor: "str?"
-  synctacles_url: "str?"
   debug_mode: bool
 changelog: |
+  ## 0.3.2-beta
+  - Synctacles server volledig verwijderd uit de prijsketen — app is nu 100% autonoom
+  - Alle features (acties, morgen-preview, automations) werken zonder account of registratie
+  - Registratie-banner en licentie-badge verwijderd uit de UI
   ## 0.3.1-beta
   - Fix MQTT discovery topic for binary_sensor (cheap hour) — illegaal topic veroorzaakte HA log spam
   - Privacy notice modal bij eerste start
