@@ -2,7 +2,7 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration
 
 name: "Synctacles Care"
-version: "0.3.0-rc41"
+version: "0.3.0-rc42"
 slug: "synctacles_care"
 description: "🩺 Health diagnostics, security scan, AI troubleshooting & 19,500+ KB articles for Home Assistant"
 url: "https://github.com/synctacles/care-app"
