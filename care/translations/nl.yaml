@@ -1,10 +1,11 @@
 configuration:
   ai_api_key:
-    name: Anthropic API-sleutel
+    name: AI API-sleutel
     description: >-
-      Je persoonlijke Anthropic API-sleutel voor AI-diagnostiek.
-      Maak er een aan op console.anthropic.com. Laat leeg om AI-functies uit te schakelen.
-      Je sleutel wordt lokaal opgeslagen en nooit gedeeld.
+      Je persoonlijke API-sleutel voor de gekozen AI-provider.
+      Anthropic: console.anthropic.com | OpenAI: platform.openai.com |
+      Groq: console.groq.com | Gemini: aistudio.google.com.
+      Laat leeg om AI-functies uit te schakelen. Je sleutel wordt lokaal opgeslagen en nooit gedeeld.
   notifications_enabled:
     name: Meldingen
     description: >-

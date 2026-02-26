@@ -1,10 +1,11 @@
 configuration:
   ai_api_key:
-    name: Anthropic API Key
+    name: AI API Key
     description: >-
-      Your personal Anthropic API key for AI-powered diagnostics.
-      Get one at console.anthropic.com. Leave empty to disable AI features.
-      Your key is stored locally and never shared.
+      Your personal API key for the selected AI provider.
+      Anthropic: console.anthropic.com | OpenAI: platform.openai.com |
+      Groq: console.groq.com | Gemini: aistudio.google.com.
+      Leave empty to disable AI features. Your key is stored locally and never shared.
   notifications_enabled:
     name: Notifications
     description: >-

@@ -1,296 +1,195 @@
-# Synctacles CARE - Documentation
+# Synctacles CARE — Documentation
 
-**Version:** 0.3.0
-**Last Updated:** February 23, 2026
+System diagnostics, AI-powered troubleshooting, and Config Doctor for Home Assistant.
 
----
-
-## Overview
-
-Synctacles CARE provides system diagnostics, AI-powered troubleshooting, and Config Doctor for Home Assistant.
-
-**All features are 100% free with no registration required.**
+**All features are 100% free — no account, no registration, no subscription required.**
 
 ---
 
 ## Features
 
-- **Health Scan** - A-F grading system (database, integrations, sensors, recorder, logs)
-- **Security Scan** - Vulnerability detection with 0-100 score
-- **Cleanup** - Orphan entity removal with resource-aware chunked deletion
-- **KB Search** - Access 19,000+ Home Assistant support articles
-- **AI Assist** - BYOK Anthropic integration with Diagnose, Config Doctor, and Builder
-- **Config Doctor** - AI-powered automation analysis with one-click fix and rollback
-- **Synctacles Radar** - Silent error fingerprinting & community pattern matching
-- **Feedback Loop** - Report bugs and get notified when they're resolved
-- **Multi-arch** - amd64, arm64, armv7
-
-### Health Scan
-
-Comprehensive system health analysis with A-F scoring:
-
-- **Database Health** - Size, fragmentation, query performance
-- **Orphan Detection** - Statistics and entities without state data
-- **Data Retention** - Oldest/newest state timestamps
-- **Schema Detection** - Supports 2024+ and legacy HA database schemas
-
-### Security Scan
-
-Security assessment with 0-100 scoring (8-point check):
-
-| Check | Weight | What it detects |
-|---|---|---|
-| Two-Factor Authentication | 25% | TOTP 2FA active for all users |
-| SSL/HTTPS | 20% | Valid certificate + HTTPS configured |
-| HA Version | 10% | Running latest Home Assistant Core |
-| **Core Auto-Update** | **10%** | **Auto-updates enabled (see below)** |
-| Add-ons up to date | 10% | All installed apps have latest version |
-| Trusted Networks | 10% | No dangerous CIDR blocks (0.0.0.0/0) |
-| IP Ban Protection | 10% | Brute-force IP banning active |
-| Login Attempt Threshold | 5% | Max failed logins before ban |
-
-#### Why Core Auto-Update matters
-
-Home Assistant Core does **not** auto-update by default. Most users don't realize this. The consequences of a disabled auto-update setting are significant:
-
-**Security risks**
-- Known vulnerabilities remain unpatched indefinitely
-- Authentication bypasses and exploits from older versions stay active
-- Security advisories from Nabu Casa are not applied automatically
-
-**Integration breakage**
-- Integrations depend on Core APIs that change between versions
-- A stuck Core version causes integrations to silently fail or crash
-- Example: DSMR/P1 energy meters stopped reporting data — the fix was in 2026.2.3, but users stuck on 2026.2.2 never received it
-
-**Ecosystem drift**
-- HACS components require minimum Core versions
-- Blueprints and automations may use features not available on older versions
-- Community support assumes the latest version — outdated users receive wrong advice
-
-**Cascade effect**
-- One missed update leads to multiple missed updates
-- The longer you wait, the higher the risk of breaking changes during a manual update
-- Database migrations accumulate, increasing update time and failure risk
-
-**How Care checks this**
-- Green: auto-updates enabled — you're protected
-- Orange (severity: low): auto-updates disabled, currently up to date — risk is low but you may miss future patches
-- Red (severity: medium): auto-updates disabled **and** an update is waiting — security patches are not being applied right now
-
-**Fix:** Go to Settings → System → Updates → enable "Automatically update Home Assistant Core"
-
-### Orphan Detection & Cleanup
-
-Find and clean up orphaned resources:
-
-- **Statistics** - Entries for entities that no longer exist
-- **Entities** - Registry entries without state data
-
-Chunked deletion with resource-aware profiles (Pi 3 through x86).
-
-### Knowledge Base Search
-
-Search 19,000+ Home Assistant articles:
-
-- GitHub Issues (home-assistant/core)
-- Community Forum threads
-- Reddit r/homeassistant posts
-- StackOverflow questions
-- Language-filtered FAQ articles
-
-**Proactive Matching:** Automatically finds solutions for detected issues
-
-### AI Assist Hub
-
-The AI tab provides three tools in a hub layout:
-
-#### Diagnose
-- Bring Your Own Anthropic API Key
-- Model selection: Haiku (fast), Sonnet (balanced), or Opus (thorough)
-- Describe your issue in natural language
-- Step-by-step diagnostics with live log streaming via terminal panel
-- Local execution — all HA API calls happen on your device
-
-**Cost:** ~$0.01-0.25 per session depending on model (you control usage)
-
-#### Config Doctor (Phase 1: Automations)
-- List all automations with on/off status and last triggered time
-- View automation YAML before sending to AI
-- Claude cross-references entity_ids and service calls against your actual HA instance
-- Side-by-side diff view: original vs fixed YAML
-- One-click apply with automatic backup
-- Instant rollback to previous config
-- Requires AI API key (same as Diagnose)
-
-#### Builder (Coming Soon)
-- Create automations and blueprints from natural language descriptions
-
-### Synctacles Radar
-
-Silent error detection and community intelligence:
-
-- Automatic error fingerprinting from system logs
-- Adaptive scanning (high alert mode after HA restarts)
-- Community-wide error pattern matching
-- Proactive KB solution notifications (confidence > 90%)
-
-### Feedback Loop
-
-Report issues and get notified when they're resolved:
-
-- Structured bug reports with environment context
-- Automatic resolution notifications
-- Version-aware feedback tracking
+| Feature | What it does |
+|---|---|
+| **Health Scan** | A-F score: database, integrations, sensors, recorder, logs |
+| **Security Scan** | 0–100 score: 2FA, SSL, HA version, trusted networks, IP ban, login threshold |
+| **Cleanup** | Remove orphaned statistics and entities with chunked, resource-aware deletion |
+| **Backup Insights** | Disk usage overview and backup management from the Health tab |
+| **Knowledge Base** | Search 19,000+ HA support articles (GitHub, forum, Reddit, StackOverflow) |
+| **AI Assist** | BYOK AI: Diagnose issues and fix automations with Config Doctor |
+| **Feedback** | Structured bug reports with environment context |
 
 ---
 
 ## Installation
 
-1. Add the repository to Home Assistant:
-   - Go to **Settings > Apps > App Store**
-   - Click the menu (3 dots) > **Repositories**
-   - Add: `https://github.com/synctacles/ha-apps`
-2. Find **Synctacles Care** in the App Store
-3. Click **Install**
-4. Start the app
+1. Go to **Settings → Apps → App Store**
+2. Click the menu (⋮) → **Repositories** → add `https://github.com/synctacles/ha-apps`
+3. Find **Synctacles Care** in the store and click **Install**
+4. Start the app — the web UI opens automatically in the sidebar
 
 ---
 
 ## Configuration
 
-All features work without configuration. Optional settings:
+All features work without configuration. The only optional setting is an AI API key for the AI Assist tab.
 
 ```yaml
-# Anthropic API key for AI Assist and Config Doctor (BYOK)
-ai_api_key: "sk-ant-..."
+# AI provider (anthropic / openai / groq / gemini)
+ai_provider: anthropic
 
-# Enable HA persistent notifications (default: true)
+# Your API key for the selected provider — leave empty to disable AI features
+ai_api_key: ""
+
+# Enable HA persistent notifications when issues are detected (default: true)
 notifications_enabled: true
 
 # Enable scheduled daily health scans (default: false)
 scheduled_scan_enabled: false
 
-# Enable automatic orphan cleanup (default: false)
+# Enable automatic orphan cleanup during scheduled scans (default: false)
 auto_cleanup_enabled: false
 
-# Enable debug logging (default: false)
+# Debug logging — only enable when reporting issues (default: false)
 debug_mode: false
 ```
 
-**Save and restart the app after configuration changes.**
+**Save and restart the app after any configuration change.**
 
 ---
 
-## Web UI
+## Health Tab
 
-Access via **Sidebar > Synctacles Care**
+Runs a full system health scan and shows:
 
-### Tabs
+- **A–F grade** with 0–100 score
+- **Database Health** — size, fragmentation, orphaned stats/entities
+- **Backup Insights** — total disk usage, backup count and size, breakdown chart
+- **Recommendations** — actionable steps for any detected issues
+- **Proactive solutions** — auto-matched KB articles for your specific problems
 
-1. **Health** - Full health scan report with A-F score
-2. **Security** - Security scan results (0-100 score)
-3. **Cleanup** - Orphaned entities with cleanup and VACUUM options
-4. **Knowledge Base** - Search 19K+ HA articles
-5. **AI Assist** - Hub with Diagnose, Config Doctor, and Builder
-6. **Feedback** - Report issues and track resolutions
-7. **About** - App info, features, changelog, links
+### Database cleanup
 
-### First Launch
+The **Cleanup** button removes orphaned stats and entities in batches. **VACUUM** compacts the database file. Both are safe and reversible by HA's own recorder.
 
-On first install, a disclaimer/liability notice is shown (available in 8 languages). Accept once to use the app.
+---
 
-### Dark Mode
+## Security Tab
 
-Automatically follows your Home Assistant theme preference. Toggle available in the UI header.
+8-point security assessment with weighted scoring:
 
-### Languages
+| Check | Weight | What it detects |
+|---|---|---|
+| Two-Factor Authentication | 25% | TOTP 2FA active |
+| SSL/HTTPS | 20% | HTTPS configured with valid certificate |
+| HA Version | 10% | Running latest Home Assistant Core |
+| Core Auto-Update | 10% | Auto-updates enabled |
+| Add-ons up to date | 10% | All installed apps on latest version |
+| Trusted Networks | 10% | No dangerous CIDR blocks (e.g. 0.0.0.0/0) |
+| IP Ban Protection | 10% | Brute-force protection active |
+| Login Attempt Threshold | 5% | Max failed logins before IP ban |
 
-Available in 8 languages: English, Dutch, German, Spanish, Danish, Finnish, Portuguese, French. Auto-detected from browser settings.
+Hover the **ⓘ** icon next to each check for an explanation of why it matters.
+
+### Why Core Auto-Update matters
+
+HA Core does **not** auto-update by default. Without it, security patches, integration fixes, and API changes are not applied automatically. Enable it at: **Settings → System → Updates → Automatically update Home Assistant Core**.
+
+---
+
+## Knowledge Base
+
+Search 19,000+ Home Assistant support articles sourced from:
+- GitHub Issues (home-assistant/core)
+- Community Forum threads
+- Reddit r/homeassistant
+- StackOverflow
+
+FAQ articles are filtered to your language automatically. Community articles are always shown in English.
+
+**Rate limit:** 100 searches per day per installation.
+
+---
+
+## AI Assist
+
+The AI tab requires a BYOK (Bring Your Own Key) API key. Supported providers:
+
+| Provider | Key source |
+|---|---|
+| Anthropic (Claude) | console.anthropic.com |
+| OpenAI (GPT) | platform.openai.com |
+| Groq | console.groq.com |
+| Gemini | aistudio.google.com |
+
+Add your key in **Settings → Apps → Synctacles Care → Configuration**.
+
+### Diagnose
+
+Describe any Home Assistant issue in plain language. The AI:
+- Reads your live HA logs in real time
+- Cross-references your configuration and entity states
+- Provides step-by-step diagnostics with actionable fixes
+
+**Estimated cost:** ~€0.01–0.25 per session depending on model and complexity.
+
+### Config Doctor
+
+Analyzes your automations with AI:
+
+1. Select an automation from the list
+2. AI reads the YAML and cross-references all entity_ids against your running HA instance
+3. View detected issues and a proposed fix with a side-by-side diff
+4. Apply with one click — an automatic backup is created first
+5. Restore the original at any time with **Rollback**
 
 ---
 
 ## Privacy & Data
 
-### What We Collect (Automatic)
+### What is collected automatically
 
-- Installation ID (random UUID, not linked to you)
+- Install ID (random UUID, generated locally, not linked to you)
 - App version and HA version
 - Architecture (amd64/aarch64/armv7)
-- Anonymous error fingerprints (integration + error class only)
-- Environment snapshot (HA version, addon count, disk space)
+- Anonymous error fingerprints (integration name + error class only, no log content)
 
-### What We DO NOT Collect
+### What is never collected
 
-- Personal information or IP addresses
+- Personal data, IP addresses, or location
 - HA configuration, secrets, or entity names
-- Logs or error message content
+- Log content or error messages
 - API keys or credentials
 
-### GDPR Compliance
-
-Privacy policy: https://synctacles.com/privacy
-
-**Your Rights:** Access, delete, export your data, or object to processing.
-
-**Contact:** support@synctacles.com
+Full privacy policy: **https://synctacles.com/privacy**
 
 ---
 
 ## Troubleshooting
 
-### "Health scan failed"
+**Health scan fails**
+- Check app logs: Settings → Apps → Synctacles Care → Log
+- Requires Home Assistant 2024.1 or newer
+- Supervisor API must be accessible (enabled by default)
 
-1. Check app logs: **Settings > Apps > Synctacles CARE > Log**
-2. Ensure Supervisor API access is enabled (default: enabled)
-3. Restart Home Assistant
-4. Check HA version: requires 2024.1+
+**AI Assist not available**
+- Add an API key in Configuration (see AI Assist section above)
+- Click "Check API status" in the AI tab to verify the key works
 
-### "AI Assist not available"
+**Config Doctor shows no automations**
+- Ensure automations are configured in HA
+- The Supervisor API must be accessible (check app logs)
 
-1. Get an Anthropic API key: https://console.anthropic.com/
-2. Add to app configuration: `ai_api_key: "sk-ant-..."`
-3. Save and restart the app
-
-### "Config Doctor shows no automations"
-
-1. Ensure you have automations configured in HA
-2. Check that `homeassistant_api: true` is set in the app config (default: enabled)
-3. The Supervisor API must be accessible (check app logs)
-
-### App takes long to start
-
-The web UI loads instantly. Background services (radar, telemetry, heartbeat) start after the Supervisor API is ready, which may take 30-60 seconds after HA boot.
-
----
-
-## FAQ
-
-**Is CARE really free?**
-Yes, 100% free. No trials, no hidden costs, and no plans for paid tiers.
-
-**Do I need to register?**
-No. All features work without registration.
-
-**How much does AI Assist cost?**
-~$0.01-0.25 per session depending on model choice (Anthropic API pricing). You bring your own key.
-
-**Can I use this offline?**
-Partially. Health/security scans and cleanup work offline. KB search, AI Assist, and Config Doctor require internet.
-
-**What is Config Doctor?**
-Config Doctor analyzes your automations with AI. It reads the YAML config, cross-references entity_ids and service calls against your HA instance, shows you what's wrong with a diff view, and lets you apply fixes with automatic backup and rollback.
-
-**What is Synctacles Radar?**
-A silent background pipeline that detects errors in your HA logs, fingerprints them, and checks if solutions exist in our 19K+ article knowledge base. When a high-confidence match is found, you get a notification.
+**App takes long to start**
+- The web UI loads instantly. Background services (telemetry, radar) start after the Supervisor API is ready — typically 30–60 seconds after HA boot.
 
 ---
 
 ## Support
 
-- **Issues:** [Report a Bug](https://github.com/synctacles/care-app/issues)
+- **Bugs:** Use the **Feedback** tab in the app or [open an issue](https://github.com/synctacles/care-app/issues)
 - **Email:** support@synctacles.com
+- **Website:** https://synctacles.com
 
 ---
 
-**Gemaakt met ❤️ op Madeira**
+*Gemaakt met ❤️ op Madeira*

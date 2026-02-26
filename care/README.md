@@ -1,7 +1,5 @@
 # Synctacles CARE - Home Assistant App
 
-**Version:** 0.3.0-rc4
-
 System diagnostics, AI-powered troubleshooting, and Config Doctor for Home Assistant.
 All features are 100% free with no registration required.
 
@@ -10,11 +8,11 @@ All features are 100% free with no registration required.
 - **Health Scan** - A-F grading system (database, integrations, sensors, recorder, logs)
 - **Security Scan** - Vulnerability detection with 0-100 score
 - **Cleanup** - Orphan entity removal with resource-aware chunked deletion
+- **Backup Insights** - Disk usage overview and backup management
 - **KB Search** - Access 19,000+ Home Assistant support articles
-- **AI Assist** - BYOK Anthropic integration with Diagnose, Config Doctor, and Builder
+- **AI Assist** - BYOK AI integration with Diagnose and Config Doctor (Anthropic, OpenAI, Groq, Gemini)
 - **Config Doctor** - AI-powered automation analysis with one-click fix and rollback
-- **Synctacles Radar** - Silent error fingerprinting & community pattern matching
-- **Feedback Loop** - Report bugs and get notified when they're resolved
+- **Feedback** - Structured bug reports with environment context
 - **Multi-arch** - amd64, arm64, armv7
 
 ## Build
