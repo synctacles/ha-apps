@@ -4,7 +4,7 @@
 name: "Synctacles Care"
 version: "0.3.0-rc40"
 slug: "synctacles_care"
-description: "System diagnostics, cleanup, and AI-powered troubleshooting for Home Assistant"
+description: "🩺 Health diagnostics, security scan, AI troubleshooting & 19,500+ KB articles for Home Assistant"
 url: "https://github.com/synctacles/care-app"
 arch:
   - amd64
