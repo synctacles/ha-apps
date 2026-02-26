@@ -2,7 +2,7 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration
 
 name: "Synctacles Care"
-version: "0.3.0-rc37"
+version: "38"
 slug: "synctacles_care"
 description: "System diagnostics, cleanup, and AI-powered troubleshooting for Home Assistant"
 url: "https://github.com/synctacles/care-app"
