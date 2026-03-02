@@ -1,0 +1,54 @@
+blueprint:
+  name: "Synctacles Best Window — Smart Scheduling"
+  description: >
+    Turn on a device during the cheapest consecutive hours of the day.
+    Synctacles Energy calculates the optimal time window — this blueprint
+    automatically starts your device when that window begins. Ideal for
+    EV charging, water heaters, pool pumps, or battery storage.
+  domain: automation
+  author: Synctacles
+  source_url: https://github.com/synctacles/ha-apps/blob/main/energy/blueprints/best_window_schedule.yaml
+  input:
+    target_device:
+      name: Device to control
+      description: The device to turn on during the cheapest window.
+      selector:
+        target:
+          entity:
+            domain:
+              - switch
+              - light
+              - climate
+              - fan
+              - input_boolean
+    auto_off:
+      name: Turn off after window ends
+      description: Automatically turn off the device when the best window ends.
+      default: true
+      selector:
+        boolean:
+
+trigger:
+  - platform: state
+    entity_id: binary_sensor.synctacles_cheap_hour
+    to: "on"
+
+condition: []
+
+action:
+  - service: homeassistant.turn_on
+    target: !input target_device
+  - choose:
+      - conditions:
+          - condition: template
+            value_template: "{{ auto_off }}"
+        sequence:
+          - wait_for_trigger:
+              - platform: state
+                entity_id: binary_sensor.synctacles_cheap_hour
+                to: "off"
+          - service: homeassistant.turn_off
+            target: !input target_device
+
+variables:
+  auto_off: !input auto_off

@@ -1,0 +1,33 @@
+blueprint:
+  name: "Synctacles AVOID Signal — Switch Off Devices"
+  description: >
+    Automatically turn off selected devices when Synctacles Energy detects an AVOID signal
+    (energy price is significantly above average). Helps you save money by pausing
+    non-essential loads during expensive hours.
+  domain: automation
+  author: Synctacles
+  source_url: https://github.com/synctacles/ha-apps/blob/main/energy/blueprints/avoid_signal_switch_off.yaml
+  input:
+    target_devices:
+      name: Devices to turn off
+      description: Select the devices to turn off when the AVOID signal is active.
+      selector:
+        target:
+          entity:
+            domain:
+              - switch
+              - light
+              - climate
+              - fan
+              - input_boolean
+
+trigger:
+  - platform: state
+    entity_id: sensor.synctacles_energy_action
+    to: "AVOID"
+
+condition: []
+
+action:
+  - service: homeassistant.turn_off
+    target: !input target_devices

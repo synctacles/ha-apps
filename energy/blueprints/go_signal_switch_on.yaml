@@ -1,0 +1,33 @@
+blueprint:
+  name: "Synctacles GO Signal — Switch On Devices"
+  description: >
+    Automatically turn on selected devices when Synctacles Energy detects a GO signal
+    (energy price is significantly below average). Perfect for washing machines, dryers,
+    dishwashers, EV chargers, or any device you want to run during cheap hours.
+  domain: automation
+  author: Synctacles
+  source_url: https://github.com/synctacles/ha-apps/blob/main/energy/blueprints/go_signal_switch_on.yaml
+  input:
+    target_devices:
+      name: Devices to turn on
+      description: Select the devices to turn on when the GO signal is active.
+      selector:
+        target:
+          entity:
+            domain:
+              - switch
+              - light
+              - climate
+              - fan
+              - input_boolean
+
+trigger:
+  - platform: state
+    entity_id: sensor.synctacles_energy_action
+    to: "GO"
+
+condition: []
+
+action:
+  - service: homeassistant.turn_on
+    target: !input target_devices

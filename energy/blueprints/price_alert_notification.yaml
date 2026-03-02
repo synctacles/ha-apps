@@ -1,0 +1,53 @@
+blueprint:
+  name: "Synctacles Price Alert — Notification"
+  description: >
+    Send a notification when the energy price drops below (or rises above) a threshold.
+    Use this to get notified about cheap or expensive hours so you can manually decide
+    when to run appliances.
+  domain: automation
+  author: Synctacles
+  source_url: https://github.com/synctacles/ha-apps/blob/main/energy/blueprints/price_alert_notification.yaml
+  input:
+    price_threshold:
+      name: Price threshold (EUR/kWh)
+      description: Trigger when price drops below this value (e.g. 0.10 for 10 ct/kWh).
+      default: 0.10
+      selector:
+        number:
+          min: -0.50
+          max: 2.00
+          step: 0.01
+          unit_of_measurement: EUR/kWh
+          mode: box
+    alert_direction:
+      name: Alert direction
+      description: Choose whether to alert when price goes below or above the threshold.
+      default: below
+      selector:
+        select:
+          options:
+            - label: Below threshold (cheap)
+              value: below
+            - label: Above threshold (expensive)
+              value: above
+    notification_target:
+      name: Notification service
+      description: The notification service to use (e.g. notify.mobile_app_phone).
+      default: notify.persistent_notification
+      selector:
+        text:
+
+trigger:
+  - platform: numeric_state
+    entity_id: sensor.synctacles_energy_price
+    below: !input price_threshold
+
+condition: []
+
+action:
+  - service: !input notification_target
+    data:
+      title: "⚡ Energy Price Alert"
+      message: >-
+        Current price: {{ states('sensor.synctacles_energy_price') }} EUR/kWh
+        (threshold: {{ states('input_number.synctacles_price_threshold') | default('N/A') }})
