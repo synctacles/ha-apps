@@ -1,5 +1,5 @@
 name: "Synctacles Energy"
-version: "0.3.4-beta"
+version: "0.3.5-beta"
 slug: "synctacles_energy"
 description: "EU electricity prices with GO/WAIT/AVOID recommendations for 30 bidding zones"
 url: "https://github.com/synctacles/energy-app"
@@ -47,6 +47,10 @@ schema:
   power_sensor: "str?"
   debug_mode: bool
 changelog: |
+  ## 0.3.5-beta
+  - Fix: startup hangt niet meer als Worker geen prijzen heeft
+  - Fix: resolution automatisch door Worker bepaald (PT15M/PT60M per zone)
+  - Tax profiel wordt nu altijd opgehaald, onafhankelijk van prijsbeschikbaarheid
   ## 0.3.4-beta
   - Disclaimer/liability modal bij eerste start
   - Fixed-rate pricing mode (vast tarief zonder dynamische prijzen)
