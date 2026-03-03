@@ -1,5 +1,5 @@
 name: "Synctacles Energy"
-version: "0.4.0-rc8"
+version: "0.4.0-rc9"
 slug: "synctacles_energy"
 description: "EU electricity prices with GO/WAIT/AVOID recommendations for 30 bidding zones"
 url: "https://github.com/synctacles/energy-app"
@@ -19,6 +19,7 @@ services:
   - mqtt:want
 init: false
 options:
+  pricing_mode: "auto"
   plan: "nl-default"
   zone: "NL"
   go_threshold: -15
@@ -32,11 +33,18 @@ options:
   coefficient: 0
   supplier_id: ""
   supplier_markup: 0
+  manual_vat_rate: 0
+  manual_energy_tax: 0
+  manual_surcharges: 0
+  manual_network_tariff: 0
+  fixed_rate_price: 0
+  p1_sensor_entity: ""
   power_sensor: ""
   disclaimer_accepted: false
   privacy_accepted: false
   debug_mode: false
 schema:
+  pricing_mode: "str?"
   plan: "str?"
   zone: str
   go_threshold: float
@@ -50,6 +58,12 @@ schema:
   enever_leverancier: "str?"
   supplier_id: "str?"
   supplier_markup: "float?"
+  manual_vat_rate: "float?"
+  manual_energy_tax: "float?"
+  manual_surcharges: "float?"
+  manual_network_tariff: "float?"
+  fixed_rate_price: "float?"
+  p1_sensor_entity: "str?"
   power_sensor: "str?"
   disclaimer_accepted: bool
   privacy_accepted: bool
