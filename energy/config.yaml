@@ -1,5 +1,5 @@
 name: "Synctacles Energy"
-version: "0.4.0-rc4"
+version: "0.4.0-rc5"
 slug: "synctacles_energy"
 description: "EU electricity prices with GO/WAIT/AVOID recommendations for 30 bidding zones"
 url: "https://github.com/synctacles/energy-app"
@@ -30,6 +30,7 @@ options:
   enever_token: ""
   enever_leverancier: "frank"
   coefficient: 0
+  supplier_id: ""
   power_sensor: ""
   debug_mode: false
 schema:
@@ -44,6 +45,7 @@ schema:
   enever_enabled: bool
   enever_token: "str?"
   enever_leverancier: "str?"
+  supplier_id: "str?"
   power_sensor: "str?"
   debug_mode: bool
 changelog: |
