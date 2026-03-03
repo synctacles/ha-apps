@@ -14,6 +14,10 @@ export ENEVER_LEVERANCIER="$(bashio::config 'enever_leverancier' '')"
 export ENERGY_COEFFICIENT="$(bashio::config 'coefficient' '0')"
 export BEST_WINDOW_HOURS="$(bashio::config 'best_window_hours' '3')"
 export POWER_SENSOR_ENTITY="$(bashio::config 'power_sensor' '')"
+export ENERGY_SUPPLIER_ID="$(bashio::config 'supplier_id' '')"
+export ENERGY_SUPPLIER_MARKUP="$(bashio::config 'supplier_markup' '0')"
+export DISCLAIMER_ACCEPTED="$(bashio::config 'disclaimer_accepted' 'false')"
+export PRIVACY_ACCEPTED="$(bashio::config 'privacy_accepted' 'false')"
 # Hidden: override Synctacles server URL (empty = use production default)
 _synctacles_url="$(bashio::config 'synctacles_url' '')"
 if [ -n "${_synctacles_url}" ]; then

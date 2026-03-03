@@ -31,6 +31,7 @@ options:
   enever_leverancier: "frank"
   coefficient: 0
   supplier_id: ""
+  supplier_markup: 0
   power_sensor: ""
   disclaimer_accepted: false
   privacy_accepted: false
@@ -48,6 +49,7 @@ schema:
   enever_token: "str?"
   enever_leverancier: "str?"
   supplier_id: "str?"
+  supplier_markup: "float?"
   power_sensor: "str?"
   disclaimer_accepted: bool
   privacy_accepted: bool
