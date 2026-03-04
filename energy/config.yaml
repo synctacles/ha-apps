@@ -18,6 +18,8 @@ hassio_api: true
 services:
   - mqtt:want
 init: false
+map:
+  - config:rw
 options:
   pricing_mode: "auto"
   plan: "nl-default"
@@ -90,7 +92,6 @@ changelog: |
   - Privacy notice modal bij eerste start
   ## 0.3.0-beta
   - MQTT auto-reconnect on broken pipe and connection loss
-  - Auth/license gates removed (all features free, no account needed)
   - Backend URL updated to Cloudflare Worker (api.synctacles.com)
   ## 0.2.1-beta
   - Enever API key altijd zichtbaar voor NL-plannen (was verborgen)
@@ -104,12 +105,11 @@ changelog: |
   ## 0.1.0-beta
   - Initial public beta release
   - Real-time EU electricity prices (30 bidding zones)
-  - GO/WAIT/AVOID action recommendations with feature gate
+  - GO/WAIT/AVOID action recommendations
   - Price forecasts and trend analysis
   - Best charging window detection
   - Multi-country support (NL, DE, BE, AT, FR, ES, NO, SE, DK)
   - Local fallback with cached data (offline capable)
   - Enever integration (NL suppliers, consumer prices)
   - Price alerts via HA notification (configurable threshold)
-  - Free — prices & dashboard always available
-  - Actions & tomorrow preview: free with Synctacles account
+  - 100% free — all features, no account needed
