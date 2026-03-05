@@ -42,6 +42,7 @@ options:
   fixed_rate_price: 0
   p1_sensor_entity: ""
   power_sensor: ""
+  telemetry_enabled: true
   disclaimer_accepted: false
   privacy_accepted: false
   onboarding_completed: false
@@ -68,6 +69,7 @@ schema:
   fixed_rate_price: "float?"
   p1_sensor_entity: "str?"
   power_sensor: "str?"
+  telemetry_enabled: bool
   disclaimer_accepted: bool
   privacy_accepted: bool
   onboarding_completed: bool
