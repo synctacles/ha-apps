@@ -29,7 +29,6 @@ options:
   auto_cleanup_enabled: false
   autonomous_mode_enabled: false
   debug_mode: false
-  hmac_secret: ""
 
 # Schema for options validation
 schema:
@@ -40,7 +39,6 @@ schema:
   auto_cleanup_enabled: bool
   autonomous_mode_enabled: bool
   debug_mode: bool
-  hmac_secret: "password?"
 
 # Web UI
 ingress: true

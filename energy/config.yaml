@@ -47,7 +47,6 @@ options:
   privacy_accepted: false
   onboarding_completed: false
   debug_mode: false
-  hmac_secret: ""
 schema:
   pricing_mode: "str?"
   plan: "str?"
@@ -75,7 +74,6 @@ schema:
   privacy_accepted: bool
   onboarding_completed: bool
   debug_mode: bool
-  hmac_secret: "password?"
 changelog: |
   ## 0.3.5-beta
   - Fix: startup hangt niet meer als Worker geen prijzen heeft
