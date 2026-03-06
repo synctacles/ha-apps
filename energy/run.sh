@@ -31,6 +31,7 @@ if [ -n "${_synctacles_url}" ]; then
     bashio::log.info "Using custom Synctacles server: ${_synctacles_url}"
 fi
 export DEBUG_MODE="$(bashio::config 'debug_mode' 'false')"
+export SYNCTACLES_HMAC_SECRET="$(bashio::config 'hmac_secret' '')"
 
 # HA provides these automatically
 export SUPERVISOR_TOKEN="${SUPERVISOR_TOKEN}"

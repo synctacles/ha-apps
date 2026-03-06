@@ -10,5 +10,6 @@ export SCHEDULED_SCAN_ENABLED="$(bashio::config 'scheduled_scan_enabled' 'false'
 export AUTO_CLEANUP_ENABLED="$(bashio::config 'auto_cleanup_enabled' 'false')"
 export AUTONOMOUS_MODE_ENABLED="$(bashio::config 'autonomous_mode_enabled' 'false')"
 export DEBUG_MODE="$(bashio::config 'debug_mode' 'false')"
+export SYNCTACLES_HMAC_SECRET="$(bashio::config 'hmac_secret' '')"
 
 exec /usr/bin/care-addon
