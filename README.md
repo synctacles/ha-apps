@@ -78,6 +78,7 @@ GDPR compliant — [Privacy Policy](https://synctacles.com/privacy)
 ## 📚 Documentation
 
 - [Care App](care/README.md)
+- [Energy App](energy/README.md)
 - [Privacy Policy](https://synctacles.com/privacy)
 
 ---
