@@ -1,138 +1,98 @@
 # Synctacles Home Assistant Apps
 
-**All Features Free • No Registration Required • Privacy-Focused**
+**All Features Free | No Registration | Privacy-Focused**
 
-> ⚠️ **Beta Release** — These apps are in public beta. Feedback welcome via [GitHub Issues](https://github.com/synctacles/ha-apps/issues).
-
-Official Home Assistant apps for Synctacles products.
+Official Home Assistant apps by [Synctacles](https://synctacles.com).
 
 ---
 
-## 🎯 Available Apps
+## Available Apps
 
-### 🏥 CARE - System Diagnostics & AI Support
-
-**Status:** 🚧 Beta (v0.1.0)
+### Care — System Diagnostics & AI Support
 
 Proactive system diagnostics, cleanup, and AI-powered troubleshooting for Home Assistant.
 
-**Features:**
-- 🏥 Health scan (A-F score) with actionable recommendations
-- 🔒 Security scan (0-100) with vulnerability detection
-- 🧹 Orphan entity detection and cleanup
-- 📚 Knowledge base search (17,000+ HA articles)
-- 🤖 AI diagnostics (bring your own Anthropic API key)
-- 🆓 100% free - All features unlocked
+- Health scan (A–F score) with actionable recommendations
+- Security scan (0–100) with vulnerability detection
+- Orphan entity detection and one-click cleanup
+- 19,000+ knowledge base articles, searchable from your dashboard
+- AI diagnostics — bring your own Anthropic API key (optional)
+- 100% free, all features unlocked
 
-**[→ Install CARE](care/)**
-
----
-
-### ⚡ ENERGY - Price Optimization
-
-**Status:** 🚧 Beta (v0.1.0-beta)
-
-Real-time electricity price tracking and optimization for NL and EU countries.
-
-**Features:**
-- ⚡ Live electricity prices (updated hourly)
-- 💰 Best charging windows (cheapest hours)
-- 🎯 Energy action recommendations (GO/WAIT/AVOID)
-- 📊 Forecasts and price trends
-- 🌍 Multi-country support (NL, DE, BE, AT, FR, ES, NO, SE, DK)
-- 🔋 Local fallback — works offline with cached data
-- 🆓 100% free - All features unlocked
-
-**[→ Install ENERGY](energy/)**
+**[Install Care](care/)**
 
 ---
 
-## 📦 Installation
+### Energy — Real-Time Price Optimization
 
-### Option 1: Add Repository (Recommended)
+Live electricity prices, smart scheduling, and cost tracking across Europe.
 
-1. Go to **Settings** → **Apps** → **App Store** in Home Assistant
-2. Click **⋮** (three dots, top right) → **Repositories**
-3. Add repository URL: `https://github.com/synctacles/ha-apps`
-4. Click **Add** → **Close**
-5. Refresh the App Store page
-6. Find **Synctacles CARE** or **Synctacles ENERGY**
-7. Click **Install**
+- Real-time prices from 8 sources (ENTSO-E, Nordpool, Tibber, and more)
+- Cheapest-hour recommendations for EV charging, heat pumps, appliances
+- GO / WAIT / AVOID action signals — no spreadsheets needed
+- 30 European bidding zones (NL, DE, BE, AT, FR, ES, PT, NO, SE, DK, FI, and more)
+- Works offline with local caching — no cloud lock-in
+- 100% free, all features unlocked
 
-### Option 2: One-Click Add
-
-[![Add Repository][add-repo-badge]][add-repo-url]
+**[Install Energy](energy/)**
 
 ---
 
-## 🔐 Privacy & Data
+## Installation
 
-### What Your App Shares (Optional)
+### Via CLI (Recommended)
 
-**If you enable community data sharing:**
+```bash
+ha store add https://github.com/synctacles/ha-apps
+```
+
+Then install **Care** or **Energy** from the Home Assistant app store.
+
+### Via UI
+
+1. Go to **Settings** → **Apps** → **App Store**
+2. Click the menu (three dots, top right) → **Repositories**
+3. Add: `https://github.com/synctacles/ha-apps`
+4. Refresh the page, find **Synctacles Care** or **Synctacles Energy**, and click **Install**
+
+---
+
+## Privacy & Data
+
+Both apps run **locally** on your Home Assistant instance. Your data stays on your device.
+
+**Optional community data sharing includes:**
 - Installation ID (random UUID, not linked to you)
-- Product version
-- System info (HA version, architecture)
-- Anonymous usage data to help improve the product
+- Product version and system info (HA version, architecture)
 
-### What Is Never Shared
+**Never shared:**
+- Personal identifiable information
+- HA configuration or secrets
+- Entity names or data
+- Logs or error messages
 
-- ❌ Personal identifiable information
-- ❌ HA configuration or secrets
-- ❌ Entity names or data
-- ❌ Logs or error messages
-
-**GDPR Compliant:** [Privacy Policy](https://github.com/synctacles/platform/blob/main/PRIVACY.md)
+GDPR compliant — [Privacy Policy](https://synctacles.com/privacy)
 
 ---
 
-## 📚 Documentation
+## Documentation
 
-- **User Guide:** [DOCS.md](https://github.com/synctacles/platform/blob/main/DOCS.md)
-- **CARE App:** [care/README.md](care/README.md)
-- **Privacy Policy:** [PRIVACY.md](https://github.com/synctacles/platform/blob/main/PRIVACY.md)
-- **License:** [LICENSE](LICENSE)
+- [Care App](care/README.md)
+- [Privacy Policy](https://synctacles.com/privacy)
 
 ---
 
-## 🆘 Support
+## Support
 
-- **GitHub Issues:** [Report a Bug](https://github.com/synctacles/ha-apps/issues/new?template=bug_report.yml)
-- **Documentation:** [DOCS.md](https://github.com/synctacles/platform/blob/main/DOCS.md)
-- **Community Forum:** [Home Assistant Forum](https://community.home-assistant.io/)
-
----
-
-## 🤝 Contributing
-
-Synctacles apps are open-source! Contributions welcome.
-
-**Source Code Repositories:**
-- CARE App: [synctacles/care-app](https://github.com/synctacles/care-app)
-- CARE Backend: [synctacles/care-backend](https://github.com/synctacles/care-backend)
-- Energy App: [synctacles/energy-app](https://github.com/synctacles/energy-app)
-- Energy Backend: [synctacles/energy-backend](https://github.com/synctacles/energy-backend)
-- Platform: [synctacles/platform](https://github.com/synctacles/platform)
+- [Report a Bug](https://github.com/synctacles/ha-apps/issues)
+- [Home Assistant Community Forum](https://community.home-assistant.io/)
 
 ---
 
-## 📄 License
+## License
 
-MIT License - See [LICENSE](LICENSE)
-
----
-
-## 📧 Contact
-
-- **Email:** support@synctacles.com
-- **GitHub:** [@synctacles](https://github.com/synctacles)
-- **Website:** https://synctacles.com
+MIT — See [LICENSE](LICENSE)
 
 ---
 
-**Gemaakt met ❤️ op Madeira**
-
----
-
-[add-repo-badge]: https://img.shields.io/badge/Add_Repository-41BDF5?style=for-the-badge&logo=homeassistant&logoColor=white
-[add-repo-url]: https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fsynctacles%2Fha-apps
+**Made with care on Madeira** | [synctacles.com](https://synctacles.com)
