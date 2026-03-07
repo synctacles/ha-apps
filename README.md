@@ -6,39 +6,39 @@ Official Home Assistant apps by [Synctacles](https://synctacles.com).
 
 ---
 
-## Available Apps
+## 🎯 Available Apps
 
-### Care — System Diagnostics & AI Support
+### 🏥 Care — System Diagnostics & AI Support
 
 Proactive system diagnostics, cleanup, and AI-powered troubleshooting for Home Assistant.
 
-- Health scan (A–F score) with actionable recommendations
-- Security scan (0–100) with vulnerability detection
-- Orphan entity detection and one-click cleanup
-- 19,000+ knowledge base articles, searchable from your dashboard
-- AI diagnostics — bring your own Anthropic API key (optional)
-- 100% free, all features unlocked
+- 📊 Health scan (A–F score) with actionable recommendations
+- 🔒 Security scan (0–100) with vulnerability detection
+- 🧹 Orphan entity detection and one-click cleanup
+- 📚 19,000+ knowledge base articles, searchable from your dashboard
+- 🤖 AI diagnostics — bring your own Anthropic API key (optional)
+- 🆓 100% free, all features unlocked
 
-**[Install Care](care/)**
+**[→ Install Care](care/)**
 
 ---
 
-### Energy — Real-Time Price Optimization
+### ⚡ Energy — Real-Time Price Optimization
 
 Live electricity prices, smart scheduling, and cost tracking across Europe.
 
-- Real-time prices from 8 sources (ENTSO-E, Nordpool, Tibber, and more)
-- Cheapest-hour recommendations for EV charging, heat pumps, appliances
-- GO / WAIT / AVOID action signals — no spreadsheets needed
-- 30 European bidding zones (NL, DE, BE, AT, FR, ES, PT, NO, SE, DK, FI, and more)
-- Works offline with local caching — no cloud lock-in
-- 100% free, all features unlocked
+- 📈 Real-time prices from 8 sources (ENTSO-E, Nordpool, Tibber, and more)
+- 💡 Cheapest-hour recommendations for EV charging, heat pumps, appliances
+- 🚦 GO / WAIT / AVOID action signals — no spreadsheets needed
+- 🌍 30 European bidding zones (NL, DE, BE, AT, FR, ES, PT, NO, SE, DK, FI, and more)
+- 🔋 Works offline with local caching — no cloud lock-in
+- 🆓 100% free, all features unlocked
 
-**[Install Energy](energy/)**
+**[→ Install Energy](energy/)**
 
 ---
 
-## Installation
+## 📦 Installation
 
 ### Via CLI (Recommended)
 
@@ -57,7 +57,7 @@ Then install **Care** or **Energy** from the Home Assistant app store.
 
 ---
 
-## Privacy & Data
+## 🔐 Privacy & Data
 
 Both apps run **locally** on your Home Assistant instance. Your data stays on your device.
 
@@ -66,33 +66,33 @@ Both apps run **locally** on your Home Assistant instance. Your data stays on yo
 - Product version and system info (HA version, architecture)
 
 **Never shared:**
-- Personal identifiable information
-- HA configuration or secrets
-- Entity names or data
-- Logs or error messages
+- ❌ Personal identifiable information
+- ❌ HA configuration or secrets
+- ❌ Entity names or data
+- ❌ Logs or error messages
 
 GDPR compliant — [Privacy Policy](https://synctacles.com/privacy)
 
 ---
 
-## Documentation
+## 📚 Documentation
 
 - [Care App](care/README.md)
 - [Privacy Policy](https://synctacles.com/privacy)
 
 ---
 
-## Support
+## 🆘 Support
 
 - [Report a Bug](https://github.com/synctacles/ha-apps/issues)
 - [Home Assistant Community Forum](https://community.home-assistant.io/)
 
 ---
 
-## License
+## 📄 License
 
 MIT — See [LICENSE](LICENSE)
 
 ---
 
-**Made with care on Madeira** | [synctacles.com](https://synctacles.com)
+**Made with ❤️ on Madeira** | [synctacles.com](https://synctacles.com)
