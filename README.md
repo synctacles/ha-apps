@@ -67,15 +67,15 @@ Real-time electricity price tracking and optimization for NL and EU countries.
 
 ## 🔐 Privacy & Data
 
-### What We Collect (Optional)
+### What Your App Shares (Optional)
 
-**Only if you enable telemetry:**
+**If you enable community data sharing:**
 - Installation ID (random UUID, not linked to you)
 - Product version
 - System info (HA version, architecture)
-- Anonymous usage statistics
+- Anonymous usage data to help improve the product
 
-### What We DO NOT Collect
+### What Is Never Shared
 
 - ❌ Personal identifiable information
 - ❌ HA configuration or secrets

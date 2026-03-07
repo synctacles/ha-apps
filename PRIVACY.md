@@ -1,21 +1,21 @@
 # Privacy Policy
 
 **Effective Date:** February 16, 2026
-**Last Updated:** February 16, 2026
+**Last Updated:** March 6, 2026
 
 ## Overview
 
-Synctacles provides free Home Assistant addons for energy optimization and system maintenance. This Privacy Policy explains how we collect, use, and protect your personal data when you use our products.
+Synctacles provides free Home Assistant apps for energy optimization and system maintenance. This Privacy Policy explains what your app shares with us, why, and how we protect it.
 
 **Key Points:**
 - All Synctacles products are **100% free** with no paid tiers
-- Email verification is **optional** (only for telemetry and notifications)
-- All addon features work **without registration**
-- We collect **minimal data** and respect your privacy
+- All features work **without registration** — no account, no email
+- Your app shares **minimal, anonymous data** to help us improve the product for the entire community
+- You can **delete all your data** at any time from the app Settings
 
 ---
 
-## 1. Data Controller
+## 1. Responsible Party
 
 **Name:** Synctacles
 **Contact:** support@synctacles.com
@@ -23,106 +23,130 @@ Synctacles provides free Home Assistant addons for energy optimization and syste
 
 ---
 
-## 2. What Data We Collect
+## 2. What Your App Shares
 
-### 2.1 Optional Email Verification
+### 2.1 Install Identifier (always active)
 
-If you choose to verify your email address, we collect:
-- **Email address** (for sending verification codes and optional notifications)
-- **Verification timestamp** (when you completed verification)
-
-**Legal Basis:** Consent (GDPR Article 6(1)(a))
-**Purpose:** Email verification enables optional features like error notifications and product updates.
-
-### 2.2 Anonymous Install Heartbeat (default: enabled)
-
-When you enable "Anonymous install counting" in the app settings (enabled by default), we collect:
+Your app generates a random identifier (UUID) on first install and periodically shares:
 - **Installation ID** (randomly generated UUID, not linked to you personally)
 - **Product name** (e.g., "energy" or "care")
 - **App version** (e.g., "1.3.1")
 - **System architecture** (e.g., "aarch64", "x86_64")
 
-**This is the only data we collect by default.** It contains no personal information — only 4 anonymous fields to count active installations and supported architectures.
+This contains no personal information — only 4 anonymous fields so we can count active installations and prioritize architecture support.
 
-**Legal Basis:** Consent (GDPR Article 6(1)(a))
-**Purpose:** Count active installations, monitor version adoption, and ensure architecture support.
-**How to disable:** Set "heartbeat_enabled" to false in the app settings. Note: disabling this will limit access to remote features (KB search, price forecasts, etc.) because we cannot verify your installation.
+**Legal Basis:** Legitimate Interest (GDPR Article 6(1)(f))
+**Balancing test:** Our legitimate interest is counting active installations and monitoring version adoption. The impact on users is minimal: data is pseudonymous, cannot be linked to individuals without additional information, and is automatically removed after 90 days of inactivity.
 
-### 2.3 Optional Usage Telemetry
+### 2.2 Community Improvement Data (default: enabled, opt-out available)
 
-If you additionally opt-in to telemetry, we collect more detailed (but still anonymous) data:
-- **Installation ID** (same UUID as heartbeat)
-- **Product version** (e.g., "Energy v1.2.0")
-- **System information** (e.g., "Home Assistant OS on aarch64")
-- **Usage statistics** (e.g., "uptime: 7-30 days", "cache hit rate: >90%")
-- **IP address** (for rate limiting and abuse prevention)
+To help improve app quality for all users, your app periodically shares anonymous system information:
 
-**Legal Basis:** Consent (GDPR Article 6(1)(a))
-**Purpose:** Improve app stability, prioritize bug fixes, and optimize performance.
+**General (both apps):**
+- **Installation ID** (same UUID as above)
+- **Product version** and **Home Assistant version**
+- **System info** (architecture, OS type, install type)
+- **Language and country** (for localization priority)
+- **Uptime range** (e.g., "7-30 days" — bucketed, not exact)
+
+**Energy app additionally shares:**
+- **Active price source** (e.g., "worker", "enever") and **fallback frequency range**
+- **Cache efficiency range** (e.g., ">90%")
+- **Price source reliability** (which source tier is active, daily report)
+- **Energy coverage hints** (bidding zone and contract type, one-time, only if a third-party energy sensor is detected and Synctacles Energy is not installed)
+
+**Care app additionally shares:**
+- **Database health metrics** (size range, health grade, orphan count)
+- **Cleanup outcome ranges** (items removed range, duration range)
+- **Common issue signatures** (normalized integration error patterns — no entity names, no personal data, no configuration details)
+- **System health overview** (CPU/memory usage percentages, disk capacity, installed addon slugs and versions, HA resolution status)
+
+All values that could identify usage patterns are sent as **ranges** (buckets), not exact numbers. No IP addresses are stored. No entity names, automation content, or configuration details are included.
+
+**Legal Basis:** Legitimate Interest (GDPR Article 6(1)(f))
+**Balancing test:** Our legitimate interest is improving app stability and performance for all users. The impact is minimal: data is anonymous, bucketed where possible, and automatically removed after 90 days.
+**Purpose:** Improve app stability, prioritize bug fixes, understand common issues across the community, and optimize performance.
+**How to opt out:** Disable "Community Data" in the app Settings tab.
+
+### 2.3 Knowledge Base Interaction
+
+When you search the Knowledge Base, your app sends:
+- **Search query** (the text you type)
+- **Installation ID** (for rate limiting and usage analytics)
+- **Article feedback** (helpful/not helpful, if you choose to rate an article)
+
+This data helps us improve search quality and article relevance.
+
+**Legal Basis:** Legitimate Interest (GDPR Article 6(1)(f))
 
 ### 2.4 Optional User Feedback
 
-If you submit feedback via our addon, we collect:
-- **Rating** (1-5 stars)
-- **Feedback text** (optional comment)
-- **Bug reports** (if you choose to report a bug)
-- **IP address** (for rate limiting)
+If you submit feedback or a bug report via the app, your submission includes:
+- **Feedback text** (your comment)
+- **Category and severity** (if reporting a bug)
+- **Basic system info** (HA version, app version, architecture)
 
 **Legal Basis:** Consent (GDPR Article 6(1)(a))
 **Purpose:** Improve our products based on user feedback.
 
 **Note:** Bug reports may automatically create GitHub Issues in our public repository. Do not include personal information in bug reports.
 
-### 2.5 What We DO NOT Collect
+### 2.5 AI Diagnostics (optional, your key)
+
+If you use AI diagnostics, your app communicates directly with your chosen AI provider (Anthropic, OpenAI, Google, or Groq) using **your own API key**. Synctacles never sees or stores this data. Before sending, your app automatically strips API keys, GPS coordinates, IP addresses, email addresses, MAC addresses, and webhook URLs.
+
+### 2.6 What We DO NOT Have Access To
 
 - ❌ **No tracking cookies** (we don't track you across websites)
-- ❌ **No analytics** (Google Analytics, etc.)
+- ❌ **No analytics services** (no Google Analytics, etc.)
 - ❌ **No third-party advertising**
 - ❌ **No selling of data** (we never sell your information)
 - ❌ **No profiling** (we don't build user profiles)
+- ❌ **No entity names or automation content**
+- ❌ **No passwords, API keys, or secrets**
+- ❌ **No email addresses** (we don't ask for or store email)
 
 ---
 
-## 3. How We Use Your Data
+## 3. How This Data Helps the Community
 
-### Email Address
-- Send verification codes (one-time use)
-- Send optional notifications (error alerts, product updates) — **you can opt-out anytime**
-- Contact you regarding your feedback or bug reports
+### Install Identifier
+- Count active installations to understand community size
+- Monitor version adoption to know when to drop legacy support
+- Ensure all architectures (Raspberry Pi, x86, etc.) remain supported
 
-### Telemetry Data
-- Monitor addon stability and performance
-- Prioritize bug fixes based on affected users
-- Optimize features for common system configurations
+### Community Improvement Data
+- Detect and fix stability issues before they affect more users
+- Understand common integration problems across thousands of installations
+- Optimize features for the most common system configurations
+- Improve price source reliability (Energy) and database health tools (Care)
 
 ### Feedback & Bug Reports
-- Improve addon features
 - Fix reported bugs
-- Track issue resolution
+- Prioritize feature requests
 
 ---
 
-## 4. Data Storage & Security
+## 4. Where It's Kept & Security
 
-### Where We Store Your Data
+### Where Your Data Is Stored
 
-- **Email addresses:** PostgreSQL database on EU server (Hetzner, Germany)
-- **Telemetry:** PostgreSQL database on EU server (Hetzner, Germany)
+- **Install & community data:** Cloudflare D1 database (Cloudflare global network, GDPR-compliant)
 - **Bug reports:** GitHub Issues (publicly visible, USA)
 
 ### Security Measures
 
 - **Encryption:** All data transmitted over HTTPS (TLS 1.3)
 - **Access control:** Database access restricted to authorized personnel only
-- **Rate limiting:** 5 requests per hour for feedback/email verification (prevents abuse)
-- **Disposable email blocking:** We block temporary email addresses (e.g., mailinator.com)
+- **Rate limiting:** Prevents abuse on all API endpoints
+- **No raw IP storage:** IP addresses are hashed for rate limiting and cannot be recovered
 
-### Data Retention
+### How Long It's Kept
 
-- **Email addresses:** Retained until you request deletion
-- **Heartbeat data:** Automatically deleted after 90 days of inactivity
-- **Telemetry:** Automatically deleted after 90 days of inactivity
+- **Install & community data:** Automatically removed after 90 days of inactivity
+- **Version history:** Automatically pruned after 180 days
 - **Bug reports:** Retained indefinitely in GitHub (public record)
+- **AI session data:** Processed in real-time by your AI provider and not retained by Synctacles
 
 ---
 
@@ -131,13 +155,13 @@ If you submit feedback via our addon, we collect:
 You have the following rights under the General Data Protection Regulation (GDPR):
 
 ### Right to Access
-Request a copy of all personal data we hold about you.
+Request a copy of all data we hold about your installation. You can also retrieve your data directly via the API: `GET /api/v1/install/data?install_uuid=YOUR_UUID`.
 
 ### Right to Rectification
 Request correction of inaccurate or incomplete data.
 
 ### Right to Erasure ("Right to be Forgotten")
-Request deletion of your personal data. We will comply within 30 days.
+Delete all your data via the "Delete My Data" button in the app Settings tab, or by emailing us. Deletion is immediate and automatic.
 
 ### Right to Restrict Processing
 Request limitation of how we process your data.
@@ -146,10 +170,7 @@ Request limitation of how we process your data.
 Receive your data in a machine-readable format (JSON).
 
 ### Right to Object
-Object to processing of your data for specific purposes.
-
-### Right to Withdraw Consent
-Withdraw your consent to email verification or telemetry at any time. This does not affect prior processing based on consent.
+Object to community data sharing by disabling "Community Data" in the app Settings tab.
 
 **How to Exercise Your Rights:**
 Email us at: **support@synctacles.com** with subject "GDPR Request"
@@ -158,50 +179,45 @@ We will respond within **30 days** as required by GDPR Article 12(3).
 
 ---
 
-## 6. Data Sharing & Third Parties
+## 6. Third Parties
 
-### Who We Share Data With
+### Services We Use
 
 - **GitHub:** Bug reports are publicly visible in our GitHub repository (by design)
-- **Email provider:** Zoho Mail (for sending verification emails) — see [Zoho Privacy Policy](https://www.zoho.com/privacy.html)
-- **Hosting provider:** Hetzner (Germany) — see [Hetzner Privacy Policy](https://www.hetzner.com/legal/privacy-policy)
+- **Cloudflare:** Infrastructure hosting (GDPR-compliant) — see [Cloudflare Privacy Policy](https://www.cloudflare.com/privacypolicy/)
 
-### Who We DO NOT Share Data With
+### We DO NOT Share Data With
 
 - ❌ **Advertisers** (we have no ads)
 - ❌ **Data brokers** (we never sell data)
-- ❌ **Analytics companies** (Google Analytics, etc.)
+- ❌ **Analytics companies** (no Google Analytics, etc.)
 - ❌ **Social media platforms** (no Facebook Pixel, etc.)
 
 ### International Transfers
 
-Your data is stored in **Germany (EU)** and not transferred outside the EU, except for:
+Your data is stored on **Cloudflare's global network** (GDPR-compliant, EU Standard Contractual Clauses). Data may also be accessed from:
 - **GitHub Issues** (USA) — only if you submit a bug report
-- **Email delivery** (Zoho routes emails globally)
-
-These transfers are based on your explicit consent when submitting data.
 
 ---
 
-## 7. Cookies & Tracking
+## 7. Cookies
 
-**We do not use cookies or tracking technologies.**
+**We do not use cookies.**
 
-Our addons communicate directly with our API without browser-based tracking.
+Our apps communicate directly with our API without browser-based tracking.
 
 ---
 
 ## 8. Children's Privacy
 
-Our products are not directed at children under 16. We do not knowingly collect data from children. If you believe a child has provided us with personal data, contact us immediately.
+Our products are not directed at children under 16. If you believe a child has provided us with personal data, contact us immediately.
 
 ---
 
-## 9. Changes to This Privacy Policy
+## 9. Changes to This Policy
 
 We may update this policy to reflect changes in our practices or legal requirements. We will:
 - Update the "Last Updated" date at the top
-- Notify users via email (if you provided your email)
 - Post a notice in our GitHub repository
 
 **Your continued use of our products after changes constitutes acceptance of the updated policy.**
@@ -212,10 +228,10 @@ We may update this policy to reflect changes in our practices or legal requireme
 
 If you are located in the EU/EEA and have concerns about how we handle your data, you have the right to lodge a complaint with your local data protection authority:
 
-**Netherlands (our jurisdiction):**
-Autoriteit Persoonsgegevens
-Website: https://autoriteitpersoonsgegevens.nl/
-Phone: +31 (0)70 888 85 00
+**Portugal (our jurisdiction):**
+CNPD — Comissão Nacional de Proteção de Dados
+Website: https://www.cnpd.pt/
+Phone: +351 213 928 400
 
 **Find your local authority:** https://edpb.europa.eu/about-edpb/about-edpb/members_en
 
@@ -235,11 +251,11 @@ For privacy-related questions, data access requests, or to exercise your GDPR ri
 
 Our code is open-source and available on GitHub:
 - Platform: https://github.com/synctacles/platform
-- Energy: https://github.com/synctacles/energy-backend
-- Care: https://github.com/synctacles/care-backend
+- Energy App: https://github.com/synctacles/energy-app
+- Care App: https://github.com/synctacles/care-app
 
 You can verify our data practices by reviewing the source code.
 
 ---
 
-**Thank you for trusting Synctacles with your data. We take your privacy seriously.** 🛡️
+**Thank you for trusting Synctacles. We take your privacy seriously.**
