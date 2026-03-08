@@ -21,7 +21,7 @@ COPY run.sh /
 RUN chmod +x /run.sh /usr/bin/care-addon
 
 # Health check
-HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
+HEALTHCHECK --interval=10s --timeout=10s --start-period=30s --retries=3 \
     CMD /usr/bin/care-addon --health || exit 1
 
 # Build metadata (passed as build args)
