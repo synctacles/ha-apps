@@ -18,6 +18,8 @@ hassio_api: true
 services:
   - mqtt:want
 init: false
+startup: application
+boot: auto
 map:
   - config:rw
 options:
