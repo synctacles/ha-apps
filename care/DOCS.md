@@ -149,6 +149,46 @@ Analyzes your automations with AI:
 
 ---
 
+## 📡 MQTT Maintenance
+
+The MQTT tab appears automatically when Care detects an MQTT broker (Mosquitto) on your system. It helps you find and clean up orphaned MQTT entities — sensors that were created via MQTT Discovery but are no longer being updated by any app or integration.
+
+### What it shows
+
+- **Total MQTT entities** — how many entities in your registry use the MQTT platform
+- **Unique MQTT devices** — number of distinct MQTT devices
+- **Stale entities** — entities not updated for more than 6 hours (24h for battery devices)
+- **Orphan count** — high-confidence orphans (no live state and no device)
+
+### Orphan confidence levels
+
+| Level | Meaning | Threshold |
+|---|---|---|
+| `orphan` | No live state + no device in registry | Immediate |
+| `likely_orphan` | Stale >24h + device offline or missing | 24h (48h for battery) |
+| `stale` | Not updated recently, device may still exist | 6h (24h for battery) |
+
+### How to clean up
+
+1. Open the **MQTT** tab in Care
+2. Review the orphan candidate list — each shows entity ID, domain, confidence, and hours since last update
+3. Click **Remove** on individual entities, or use **Bulk Cleanup** for all high-confidence orphans
+4. Confirm the action — Care publishes an empty retained message to the MQTT discovery topic
+
+### Is removal safe?
+
+Yes. Removal publishes an empty retained payload to the entity's MQTT discovery topic. If the source app (e.g., Synctacles Energy) is still running, it will republish the discovery message within ~15 minutes and the entity reappears automatically.
+
+### Battery device awareness
+
+Battery-powered devices (door sensors, motion detectors, smoke detectors, etc.) often sleep for long periods. Care uses longer thresholds for these devices to avoid flagging them as orphans when they are simply in sleep mode.
+
+### Energy app auto-cleanup
+
+When the Synctacles Energy app is uninstalled but its MQTT sensors remain, Care automatically detects and removes the 13 orphaned Energy discovery topics.
+
+---
+
 ## 🔏 Privacy & Data
 
 ### What is collected automatically

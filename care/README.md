@@ -12,6 +12,7 @@ All features are 100% free with no registration required.
 - **KB Search** - Access 19,000+ Home Assistant support articles
 - **AI Assist** - BYOK AI integration with Diagnose and Config Doctor (Anthropic, OpenAI, Groq, Gemini)
 - **Config Doctor** - AI-powered automation analysis with one-click fix and rollback
+- **MQTT Maintenance** - Detect and remove orphaned MQTT entities with confidence scoring and bulk cleanup
 - **Feedback** - Structured bug reports with environment context
 - **Multi-arch** - amd64, arm64, armv7
 
