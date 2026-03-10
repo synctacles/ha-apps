@@ -62,13 +62,6 @@ jobs:
           path: _src/energy-app
           token: ${{ secrets.REPO_TOKEN }}
 
-      - name: Checkout energy-backend
-        uses: actions/checkout@v4
-        with:
-          repository: synctacles/energy-backend
-          path: _src/energy-backend
-          token: ${{ secrets.REPO_TOKEN }}
-
       - name: Determine version
         id: meta
         run: |
