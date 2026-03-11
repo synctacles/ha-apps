@@ -26,7 +26,7 @@ export DISCLAIMER_ACCEPTED="$(bashio::config 'disclaimer_accepted' 'false')"
 export PRIVACY_ACCEPTED="$(bashio::config 'privacy_accepted' 'false')"
 # Hidden: override Synctacles server URL (empty = use production default)
 _synctacles_url="$(bashio::config 'synctacles_url' '')"
-if [ -n "${_synctacles_url}" ]; then
+if [ -n "${_synctacles_url}" ] && [ "${_synctacles_url}" != "null" ]; then
     export SYNCTACLES_URL="${_synctacles_url}"
     bashio::log.info "Using custom Synctacles server: ${_synctacles_url}"
 fi
