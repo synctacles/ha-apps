@@ -1,5 +1,5 @@
 name: "Synctacles Energy"
-version: "0.4.0-rc73"
+version: "0.4.0-rc74"
 slug: "synctacles_energy"
 description: "EU electricity prices with GO/WAIT/AVOID recommendations for 30 bidding zones"
 url: "https://github.com/synctacles/energy-app"
@@ -50,9 +50,6 @@ options:
   onboarding_completed: false
   debug_mode: false
 schema:
-  zone: str
-  pricing_mode: "str?"
-  telemetry_enabled: bool
   debug_mode: bool
 changelog: |
   ## 0.3.5-beta
