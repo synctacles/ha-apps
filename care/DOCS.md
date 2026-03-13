@@ -183,6 +183,17 @@ Yes. Removal publishes an empty retained payload to the entity's MQTT discovery 
 
 Battery-powered devices (door sensors, motion detectors, smoke detectors, etc.) often sleep for long periods. Care uses longer thresholds for these devices to avoid flagging them as orphans when they are simply in sleep mode.
 
+### Background monitoring
+
+The **scan interval** (e.g. every 6 hours) controls how often Care checks for orphans — it does **not** affect which entities get cleaned up. Each scan reads the current `last_updated` timestamp directly from Home Assistant, so a sensor that published a value 5 minutes ago is always seen as active, regardless of when the last scan ran.
+
+**Auto-cleanup** uses a double threshold before removing anything:
+
+1. The entity must already be classified as `orphan` or `likely_orphan` (stale for at least 24–48 hours with no active device)
+2. The entity must **also** exceed your configured **Minimum days** setting (default: 30 days)
+
+Both conditions must be true. A lower scan interval simply means orphans are detected sooner — it never causes valid sensors to be removed. Entities classified as `stale` (6–24 hours inactive) are never auto-cleaned.
+
 ### Energy app auto-cleanup
 
 When the Synctacles Energy app is uninstalled but its MQTT sensors remain, Care automatically detects and removes the 13 orphaned Energy discovery topics.

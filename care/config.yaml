@@ -59,6 +59,7 @@ services:
 # Map host directories (optional, for advanced users)
 map:
   - config:rw
+  - ssl:ro
 
 # Environment
 environment:
