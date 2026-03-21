@@ -1,0 +1,45 @@
+blueprint:
+  name: "Synctacles Green Energy — Run When Renewable"
+  description: >
+    Automatically turn on selected devices when the electricity grid has a high
+    share of renewable energy (wind + solar). Use this to minimize your carbon
+    footprint by running washing machines, dryers, dishwashers, or EV chargers
+    when the grid is greenest.
+  domain: automation
+  author: Synctacles
+  source_url: https://github.com/synctacles/ha-apps/blob/main/energy/blueprints/green_energy_switch_on.yaml
+  input:
+    target_devices:
+      name: Devices to turn on
+      description: Select the devices to turn on when renewable energy is high.
+      selector:
+        target:
+          entity:
+            domain:
+              - switch
+              - light
+              - climate
+              - fan
+              - input_boolean
+    min_renewable_pct:
+      name: Minimum renewable percentage
+      description: Only turn on devices when renewable share is above this percentage.
+      default: 50
+      selector:
+        number:
+          min: 20
+          max: 90
+          step: 5
+          unit_of_measurement: "%"
+          mode: slider
+
+trigger:
+  - platform: numeric_state
+    entity_id: sensor.synctacles_renewable_share
+    above: !input min_renewable_pct
+
+condition: []
+
+action:
+  - service: homeassistant.turn_on
+    target: !input target_devices
