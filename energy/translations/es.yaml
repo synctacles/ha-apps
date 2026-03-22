@@ -1,0 +1,103 @@
+configuration:
+  pricing_mode:
+    name: Modo de precios
+    description: >-
+      Cómo se calcula tu precio de electricidad. Auto (perfil fiscal por zona),
+      Manual (tus propias tarifas), Sensor Externo (Tibber, Zonneplan, etc.),
+      Medidor P1 o Tarifa de medidor.
+  plan:
+    name: Perfil de país
+    description: >-
+      Configuración rápida para tu país. Establece zona y perfil fiscal automáticamente.
+  zone:
+    name: Zona de oferta
+    description: >-
+      Tu zona eléctrica (p.ej. ES, PT, FR, DE-LU).
+  go_threshold:
+    name: Umbral GO
+    description: >-
+      Porcentaje por debajo del promedio diario para una señal GO.
+      Por defecto -15 significa GO cuando el precio está 15% por debajo del promedio.
+  avoid_threshold:
+    name: Umbral AVOID
+    description: >-
+      Porcentaje por encima del promedio diario para una señal AVOID.
+      Por defecto 20 significa AVOID cuando el precio está 20% por encima del promedio.
+  best_window_hours:
+    name: Mejor ventana (horas)
+    description: >-
+      Número de horas consecutivas (1–8) para el buscador de ventana más barata.
+  alerts_enabled:
+    name: Alertas de precio
+    description: >-
+      Enviar una notificación de Home Assistant cuando el precio supere el umbral de alerta.
+  alert_threshold:
+    name: Umbral de alerta (EUR/kWh)
+    description: >-
+      Nivel de precio que activa una notificación. Solo activo cuando las alertas están habilitadas.
+  coefficient:
+    name: Coeficiente del proveedor
+    description: >-
+      Coeficiente de precio específico del proveedor para el cálculo del precio al consumidor.
+      Dejar en 0 para usar el valor por defecto del Synctacles Worker.
+  supplier_id:
+    name: Proveedor
+    description: >-
+      Tu proveedor de energía (solo Países Bajos). Se usa para la calibración
+      delta específica del proveedor para mostrar tu precio exacto al consumidor.
+  supplier_markup:
+    name: Margen del proveedor (EUR/kWh)
+    description: >-
+      Margen fijo que tu proveedor añade al precio mayorista.
+      Poner a 0 para usar el valor por defecto del Synctacles Worker.
+  manual_vat_rate:
+    name: Tipo de IVA (%)
+    description: >-
+      Porcentaje de IVA para el modo de precios manual (p.ej. 21 para España).
+  manual_energy_tax:
+    name: Impuesto energético (EUR/kWh)
+    description: >-
+      Impuesto energético por kWh para el modo de precios manual.
+  manual_surcharges:
+    name: Recargos (EUR/kWh)
+    description: >-
+      Recargos adicionales por kWh para el modo de precios manual.
+  manual_network_tariff:
+    name: Tarifa de red (EUR/kWh)
+    description: >-
+      Tarifa de transporte de red por kWh para el modo de precios manual.
+  fixed_rate_price:
+    name: Tarifa fija (EUR/kWh)
+    description: >-
+      Tu precio de contrato por kWh. Solo se usa en el modo de tarifa fija.
+  p1_sensor_entity:
+    name: Entidad sensor de tarifa
+    description: >-
+      Entidad de Home Assistant que proporciona una tarifa en EUR/kWh.
+      Funciona con medidores P1, Zonneplan, Tibber, Octopus y otras integraciones.
+  power_sensor:
+    name: Entidad sensor de potencia
+    description: >-
+      Entidad de Home Assistant para el consumo actual (W o kW).
+      Requerido para seguimiento de costes en vivo, ahorro diario y puntuación de uso.
+  telemetry_enabled:
+    name: Telemetría
+    description: >-
+      Enviar datos técnicos anónimos (versión HA, zona, patrones de error) para
+      mejorar el producto. Nunca se recopilan datos personales.
+  disclaimer_accepted:
+    name: Descargo aceptado
+    description: >-
+      Indica que has leído y aceptado el descargo de responsabilidad.
+  privacy_accepted:
+    name: Aviso de privacidad aceptado
+    description: >-
+      Indica que has leído y aceptado el aviso de privacidad.
+  onboarding_completed:
+    name: Configuración completada
+    description: >-
+      Indica que el asistente de configuración ha sido completado.
+  debug_mode:
+    name: Modo depuración
+    description: >-
+      Activar registro detallado para solución de problemas.

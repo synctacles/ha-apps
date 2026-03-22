@@ -1,0 +1,103 @@
+configuration:
+  pricing_mode:
+    name: Prijsmodus
+    description: >-
+      Hoe je elektriciteitsprijs wordt berekend. Auto (belastingprofiel per zone),
+      Handmatig (eigen tarieven), Externe Sensor (Tibber, Zonneplan, etc.),
+      P1 Meter, of Metertarief.
+  plan:
+    name: Landenprofiel
+    description: >-
+      Snelle instelling voor je land. Stelt zone en belastingprofiel automatisch in.
+  zone:
+    name: Biedingszone
+    description: >-
+      Je elektriciteitszone (bijv. NL, DE-LU, BE, FR, NO1).
+  go_threshold:
+    name: GO-drempel
+    description: >-
+      Percentage onder het daggemiddelde voor een GO-signaal.
+      Standaard -15 betekent GO bij een prijs 15% onder gemiddeld.
+  avoid_threshold:
+    name: AVOID-drempel
+    description: >-
+      Percentage boven het daggemiddelde voor een AVOID-signaal.
+      Standaard 20 betekent AVOID bij een prijs 20% boven gemiddeld.
+  best_window_hours:
+    name: Beste venster (uren)
+    description: >-
+      Aantal aaneengesloten uren (1–8) voor de goedkoopste-venster-zoeker.
+  alerts_enabled:
+    name: Prijsmeldingen
+    description: >-
+      Stuur een Home Assistant-melding wanneer de prijs de alertdrempel overschrijdt.
+  alert_threshold:
+    name: Alertdrempel (EUR/kWh)
+    description: >-
+      Prijsniveau dat een melding activeert. Alleen actief als meldingen zijn ingeschakeld.
+  coefficient:
+    name: Leverancierscoëfficiënt
+    description: >-
+      Leverancier-specifieke prijscoëfficiënt voor consumentenprijsberekening.
+      Laat op 0 om de standaard van de Synctacles Worker te gebruiken.
+  supplier_id:
+    name: Leverancier
+    description: >-
+      Je energieleverancier (alleen Nederland). Wordt gebruikt voor
+      leverancier-specifieke delta-kalibratie om je exacte consumentenprijs te tonen.
+  supplier_markup:
+    name: Leveranciersopslag (EUR/kWh)
+    description: >-
+      Vaste opslag die je leverancier toevoegt aan de groothandelsprijs.
+      Zet op 0 om de standaard van de Synctacles Worker te gebruiken.
+  manual_vat_rate:
+    name: BTW-tarief (%)
+    description: >-
+      BTW-percentage voor de handmatige prijsmodus (bijv. 21 voor Nederland).
+  manual_energy_tax:
+    name: Energiebelasting (EUR/kWh)
+    description: >-
+      Energiebelasting per kWh voor de handmatige prijsmodus.
+  manual_surcharges:
+    name: Toeslagen (EUR/kWh)
+    description: >-
+      Aanvullende toeslagen per kWh voor de handmatige prijsmodus.
+  manual_network_tariff:
+    name: Netwerktarief (EUR/kWh)
+    description: >-
+      Transporttarief per kWh voor de handmatige prijsmodus.
+  fixed_rate_price:
+    name: Vast tarief (EUR/kWh)
+    description: >-
+      Je contractprijs per kWh. Alleen gebruikt in de vaste-tarief prijsmodus.
+  p1_sensor_entity:
+    name: Tariefsensor-entiteit
+    description: >-
+      Home Assistant-entiteit die een tarief in EUR/kWh levert.
+      Werkt met P1 meters, Zonneplan, Tibber, Octopus en andere integraties.
+  power_sensor:
+    name: Vermogenssensor-entiteit
+    description: >-
+      Home Assistant-entiteit voor huidig stroomverbruik (W of kW).
+      Vereist voor live kostenbewaking, dagelijkse besparing en verbruiksscore.
+  telemetry_enabled:
+    name: Telemetrie
+    description: >-
+      Stuur anonieme technische data (HA-versie, zone, foutpatronen) om het
+      product te verbeteren. Er worden nooit persoonlijke gegevens verzameld.
+  disclaimer_accepted:
+    name: Disclaimer geaccepteerd
+    description: >-
+      Geeft aan dat je de disclaimer hebt gelezen en geaccepteerd.
+  privacy_accepted:
+    name: Privacyverklaring geaccepteerd
+    description: >-
+      Geeft aan dat je de privacyverklaring hebt gelezen en geaccepteerd.
+  onboarding_completed:
+    name: Installatie voltooid
+    description: >-
+      Geeft aan dat de installatiewizard is voltooid.
+  debug_mode:
+    name: Debugmodus
+    description: >-
+      Schakel uitgebreide logging in voor probleemoplossing.

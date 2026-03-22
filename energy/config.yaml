@@ -1,7 +1,7 @@
 name: "Synctacles Energy"
 version: "0.4.0"
 slug: "synctacles_energy"
-description: "EU electricity prices with GO/WAIT/AVOID recommendations for 30 bidding zones"
+description: "Real-time EU electricity prices with GO/WAIT/AVOID signals, 15 MQTT sensors, renewable energy tracking, and supplier price calibration for 28 countries"
 url: "https://github.com/synctacles/energy-app"
 documentation: "https://github.com/synctacles/energy-app/blob/main/DOCS.md"
 arch:
@@ -49,45 +49,31 @@ options:
 schema:
   debug_mode: bool
 changelog: |
-  ## 0.3.5-beta
-  - Fix: startup hangt niet meer als Worker geen prijzen heeft
-  - Fix: resolution automatisch door Worker bepaald (PT15M/PT60M per zone)
-  - Tax profiel wordt nu altijd opgehaald, onafhankelijk van prijsbeschikbaarheid
-  ## 0.3.4-beta
-  - Disclaimer/liability modal bij eerste start
-  - Fixed-rate pricing mode (vast tarief zonder dynamische prijzen)
+  ## 0.4.0
+  - Energy-Charts as primary source for 26 EU zones, ENTSO-E fallback
+  - 5 pricing modes: Auto, Manual, External Sensor, P1 Meter, Meter Tariff
+  - Renewable energy share sensor + green energy binary sensor
+  - Supplier delta calibration for 22 NL suppliers
+  - 15 MQTT sensors (up from 11)
+  - Green energy automation blueprint
+  - 5-tier source fallback (Energy-Charts → ENTSO-E → Elering → Elexon → zone correlation)
+  - 28 countries, 46 bidding zones
+  - HA addon translations (8 languages)
+  ## 0.3.x-beta
+  - Fixed-rate pricing mode
   - Zone auto-detect via HA timezone
-  - Automations tab met 4 blueprint imports (GO, AVOID, Price Alert, Best Window)
-  - i18n uitgebreid naar 8 talen (da, de, en, es, fi, fr, nl, pt)
-  ## 0.3.3-beta
-  - Fix MQTT broken pipe: keep-alive disabled + auto-reconnect op write-fouten
-  ## 0.3.2-beta
-  - Synctacles server volledig verwijderd uit de prijsketen — app is nu 100% autonoom
-  - Alle features (acties, morgen-preview, automations) werken zonder account of registratie
-  - Registratie-banner en licentie-badge verwijderd uit de UI
-  ## 0.3.1-beta
-  - Fix MQTT discovery topic for binary_sensor (cheap hour) — illegaal topic veroorzaakte HA log spam
-  - Privacy notice modal bij eerste start
-  ## 0.3.0-beta
-  - MQTT auto-reconnect on broken pipe and connection loss
-  - Backend URL updated to Cloudflare Worker (api.synctacles.com)
-  ## 0.2.1-beta
-  - Enever API key altijd zichtbaar voor NL-plannen (was verborgen)
-  - Enever leveranciers alleen getoond in dropdown als token is ingevuld
-  - Enever als primaire bron wanneer leverancier geselecteerd (boven Synctacles)
-  - Afgeleide velden (zone, enever) automatisch opgeslagen bij plan-wissel
-  ## 0.2.0-beta
-  - Plan selector: one-click setup for 30+ countries and 24 NL suppliers
-  - Renamed "Addon" to "App" throughout the UI
-  - Dynamic HA navigation (no more hardcoded slug)
+  - Automation blueprints (GO, AVOID, Price Alert, Best Window)
+  - i18n: 8 languages (da, de, en, es, fi, fr, nl, pt)
+  - Disclaimer and privacy modals
+  - MQTT auto-reconnect on broken pipe
+  - 100% autonomous — no account or registration needed
+  ## 0.2.x-beta
+  - Plan selector: one-click setup per country
+  - Renamed "Addon" to "App" throughout UI
   ## 0.1.0-beta
-  - Initial public beta release
-  - Real-time EU electricity prices (30 bidding zones)
-  - GO/WAIT/AVOID action recommendations
-  - Price forecasts and trend analysis
+  - Initial public beta
+  - Real-time EU electricity prices with GO/WAIT/AVOID
   - Best charging window detection
-  - Multi-country support (NL, DE, BE, AT, FR, ES, NO, SE, DK)
-  - Local fallback with cached data (offline capable)
-  - Enever integration (NL suppliers, consumer prices)
-  - Price alerts via HA notification (configurable threshold)
+  - Local fallback with 48h cached data
+  - Price alerts via HA notification
   - 100% free — all features, no account needed

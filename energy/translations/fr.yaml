@@ -1,0 +1,103 @@
+configuration:
+  pricing_mode:
+    name: Mode de tarification
+    description: >-
+      Comment votre prix d'électricité est calculé. Auto (profil fiscal par zone),
+      Manuel (vos propres tarifs), Capteur Externe (Tibber, Zonneplan, etc.),
+      Compteur P1 ou Tarif compteur.
+  plan:
+    name: Profil pays
+    description: >-
+      Configuration rapide pour votre pays. Définit la zone et le profil fiscal automatiquement.
+  zone:
+    name: Zone d'enchères
+    description: >-
+      Votre zone électrique (ex. FR, BE, DE-LU, NL).
+  go_threshold:
+    name: Seuil GO
+    description: >-
+      Pourcentage en dessous de la moyenne journalière pour un signal GO.
+      Par défaut -15 signifie GO quand le prix est 15% en dessous de la moyenne.
+  avoid_threshold:
+    name: Seuil AVOID
+    description: >-
+      Pourcentage au-dessus de la moyenne journalière pour un signal AVOID.
+      Par défaut 20 signifie AVOID quand le prix est 20% au-dessus de la moyenne.
+  best_window_hours:
+    name: Meilleure fenêtre (heures)
+    description: >-
+      Nombre d'heures consécutives (1–8) pour le chercheur de fenêtre la moins chère.
+  alerts_enabled:
+    name: Alertes de prix
+    description: >-
+      Envoyer une notification Home Assistant quand le prix dépasse le seuil d'alerte.
+  alert_threshold:
+    name: Seuil d'alerte (EUR/kWh)
+    description: >-
+      Niveau de prix déclenchant une notification. Actif uniquement quand les alertes sont activées.
+  coefficient:
+    name: Coefficient fournisseur
+    description: >-
+      Coefficient de prix spécifique au fournisseur pour le calcul du prix consommateur.
+      Laisser à 0 pour utiliser la valeur par défaut du Synctacles Worker.
+  supplier_id:
+    name: Fournisseur
+    description: >-
+      Votre fournisseur d'énergie (Pays-Bas uniquement). Utilisé pour la calibration
+      delta spécifique au fournisseur pour afficher votre prix consommateur exact.
+  supplier_markup:
+    name: Marge fournisseur (EUR/kWh)
+    description: >-
+      Marge fixe que votre fournisseur ajoute au prix de gros.
+      Mettre à 0 pour utiliser la valeur par défaut du Synctacles Worker.
+  manual_vat_rate:
+    name: Taux de TVA (%)
+    description: >-
+      Pourcentage de TVA pour le mode de tarification manuel (ex. 20 pour la France).
+  manual_energy_tax:
+    name: Taxe énergie (EUR/kWh)
+    description: >-
+      Taxe sur l'énergie par kWh pour le mode de tarification manuel.
+  manual_surcharges:
+    name: Suppléments (EUR/kWh)
+    description: >-
+      Suppléments additionnels par kWh pour le mode de tarification manuel.
+  manual_network_tariff:
+    name: Tarif réseau (EUR/kWh)
+    description: >-
+      Tarif de transport réseau par kWh pour le mode de tarification manuel.
+  fixed_rate_price:
+    name: Tarif fixe (EUR/kWh)
+    description: >-
+      Votre prix contractuel par kWh. Utilisé uniquement en mode tarif fixe.
+  p1_sensor_entity:
+    name: Entité capteur tarif
+    description: >-
+      Entité Home Assistant fournissant un tarif en EUR/kWh.
+      Fonctionne avec les compteurs P1, Zonneplan, Tibber, Octopus et autres intégrations.
+  power_sensor:
+    name: Entité capteur puissance
+    description: >-
+      Entité Home Assistant pour la consommation actuelle (W ou kW).
+      Requis pour le suivi des coûts en direct, les économies quotidiennes et le score d'utilisation.
+  telemetry_enabled:
+    name: Télémétrie
+    description: >-
+      Envoyer des données techniques anonymes (version HA, zone, schémas d'erreurs)
+      pour améliorer le produit. Aucune donnée personnelle n'est jamais collectée.
+  disclaimer_accepted:
+    name: Clause acceptée
+    description: >-
+      Indique que vous avez lu et accepté la clause de non-responsabilité.
+  privacy_accepted:
+    name: Avis de confidentialité accepté
+    description: >-
+      Indique que vous avez lu et accepté l'avis de confidentialité.
+  onboarding_completed:
+    name: Configuration terminée
+    description: >-
+      Indique que l'assistant de configuration a été complété.
+  debug_mode:
+    name: Mode débogage
+    description: >-
+      Activer la journalisation détaillée pour le dépannage.

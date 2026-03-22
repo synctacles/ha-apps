@@ -1,0 +1,103 @@
+configuration:
+  pricing_mode:
+    name: Modo de preços
+    description: >-
+      Como o preço da eletricidade é calculado. Auto (perfil fiscal por zona),
+      Manual (tarifas próprias), Sensor Externo (Tibber, Zonneplan, etc.),
+      Medidor P1 ou Tarifa de medidor.
+  plan:
+    name: Perfil de país
+    description: >-
+      Configuração rápida para o seu país. Define zona e perfil fiscal automaticamente.
+  zone:
+    name: Zona de oferta
+    description: >-
+      A sua zona elétrica (ex. PT, ES, FR, DE-LU).
+  go_threshold:
+    name: Limiar GO
+    description: >-
+      Percentagem abaixo da média diária para um sinal GO.
+      Padrão -15 significa GO quando o preço está 15% abaixo da média.
+  avoid_threshold:
+    name: Limiar AVOID
+    description: >-
+      Percentagem acima da média diária para um sinal AVOID.
+      Padrão 20 significa AVOID quando o preço está 20% acima da média.
+  best_window_hours:
+    name: Melhor janela (horas)
+    description: >-
+      Número de horas consecutivas (1–8) para o localizador de janela mais barata.
+  alerts_enabled:
+    name: Alertas de preço
+    description: >-
+      Enviar notificação do Home Assistant quando o preço ultrapassar o limiar de alerta.
+  alert_threshold:
+    name: Limiar de alerta (EUR/kWh)
+    description: >-
+      Nível de preço que aciona uma notificação. Ativo apenas quando os alertas estão ativados.
+  coefficient:
+    name: Coeficiente do fornecedor
+    description: >-
+      Coeficiente de preço específico do fornecedor para cálculo do preço ao consumidor.
+      Deixar em 0 para usar o valor padrão do Synctacles Worker.
+  supplier_id:
+    name: Fornecedor
+    description: >-
+      O seu fornecedor de energia (apenas Países Baixos). Usado para calibração
+      delta específica do fornecedor para mostrar o preço exato ao consumidor.
+  supplier_markup:
+    name: Margem do fornecedor (EUR/kWh)
+    description: >-
+      Margem fixa que o fornecedor adiciona ao preço grossista.
+      Definir como 0 para usar o valor padrão do Synctacles Worker.
+  manual_vat_rate:
+    name: Taxa de IVA (%)
+    description: >-
+      Percentagem de IVA para o modo de preços manual (ex. 23 para Portugal).
+  manual_energy_tax:
+    name: Imposto energético (EUR/kWh)
+    description: >-
+      Imposto sobre energia por kWh para o modo de preços manual.
+  manual_surcharges:
+    name: Sobretaxas (EUR/kWh)
+    description: >-
+      Sobretaxas adicionais por kWh para o modo de preços manual.
+  manual_network_tariff:
+    name: Tarifa de rede (EUR/kWh)
+    description: >-
+      Tarifa de transporte de rede por kWh para o modo de preços manual.
+  fixed_rate_price:
+    name: Tarifa fixa (EUR/kWh)
+    description: >-
+      O seu preço contratual por kWh. Usado apenas no modo de tarifa fixa.
+  p1_sensor_entity:
+    name: Entidade sensor de tarifa
+    description: >-
+      Entidade do Home Assistant que fornece uma tarifa em EUR/kWh.
+      Funciona com medidores P1, Zonneplan, Tibber, Octopus e outras integrações.
+  power_sensor:
+    name: Entidade sensor de potência
+    description: >-
+      Entidade do Home Assistant para o consumo atual (W ou kW).
+      Necessário para acompanhamento de custos em tempo real, poupanças diárias e pontuação de uso.
+  telemetry_enabled:
+    name: Telemetria
+    description: >-
+      Enviar dados técnicos anónimos (versão HA, zona, padrões de erro) para
+      melhorar o produto. Nunca são recolhidos dados pessoais.
+  disclaimer_accepted:
+    name: Aviso legal aceite
+    description: >-
+      Indica que leu e aceitou o aviso legal.
+  privacy_accepted:
+    name: Aviso de privacidade aceite
+    description: >-
+      Indica que leu e aceitou o aviso de privacidade.
+  onboarding_completed:
+    name: Configuração concluída
+    description: >-
+      Indica que o assistente de configuração foi concluído.
+  debug_mode:
+    name: Modo de depuração
+    description: >-
+      Ativar registo detalhado para resolução de problemas.

@@ -1,0 +1,103 @@
+configuration:
+  pricing_mode:
+    name: Pricing mode
+    description: >-
+      How your electricity price is calculated. Auto (tax profile per zone),
+      Manual (your own tariffs), External Sensor (Tibber, Zonneplan, etc.),
+      P1 Meter, or Meter Tariff.
+  plan:
+    name: Country plan
+    description: >-
+      Quick-setup plan for your country. Sets zone and tax profile automatically.
+  zone:
+    name: Bidding zone
+    description: >-
+      Your electricity bidding zone (e.g. NL, DE-LU, BE, FR, NO1).
+  go_threshold:
+    name: GO threshold
+    description: >-
+      Percentage below the daily average to trigger a GO signal.
+      Default -15 means GO when the price is 15% below average.
+  avoid_threshold:
+    name: AVOID threshold
+    description: >-
+      Percentage above the daily average to trigger an AVOID signal.
+      Default 20 means AVOID when the price is 20% above average.
+  best_window_hours:
+    name: Best window (hours)
+    description: >-
+      Number of consecutive hours (1–8) for the cheapest-window finder.
+  alerts_enabled:
+    name: Price alerts
+    description: >-
+      Send a Home Assistant notification when the price crosses the alert threshold.
+  alert_threshold:
+    name: Alert threshold (EUR/kWh)
+    description: >-
+      Price level that triggers a notification. Only used when alerts are enabled.
+  coefficient:
+    name: Supplier coefficient
+    description: >-
+      Supplier-specific price coefficient for consumer price calculation.
+      Leave at 0 to use the default from the Synctacles Worker.
+  supplier_id:
+    name: Supplier
+    description: >-
+      Your energy supplier (Netherlands only). Used for supplier-specific
+      delta calibration to show your exact consumer price.
+  supplier_markup:
+    name: Supplier markup (EUR/kWh)
+    description: >-
+      Fixed markup your supplier adds to the wholesale price.
+      Set to 0 to use the default from the Synctacles Worker.
+  manual_vat_rate:
+    name: VAT rate (%)
+    description: >-
+      VAT percentage for Manual pricing mode (e.g. 21 for the Netherlands).
+  manual_energy_tax:
+    name: Energy tax (EUR/kWh)
+    description: >-
+      Energy tax per kWh for Manual pricing mode.
+  manual_surcharges:
+    name: Surcharges (EUR/kWh)
+    description: >-
+      Additional surcharges per kWh for Manual pricing mode.
+  manual_network_tariff:
+    name: Network tariff (EUR/kWh)
+    description: >-
+      Network transport tariff per kWh for Manual pricing mode.
+  fixed_rate_price:
+    name: Fixed rate (EUR/kWh)
+    description: >-
+      Your contract price per kWh. Only used in Fixed Rate pricing mode.
+  p1_sensor_entity:
+    name: Tariff sensor entity
+    description: >-
+      Home Assistant entity that provides a tariff in EUR/kWh.
+      Works with P1 meters, Zonneplan, Tibber, Octopus, and other integrations.
+  power_sensor:
+    name: Power sensor entity
+    description: >-
+      Home Assistant entity for current power consumption (W or kW).
+      Required for live cost tracking, daily savings, and usage score.
+  telemetry_enabled:
+    name: Telemetry
+    description: >-
+      Send anonymous technical data (HA version, zone, error patterns) to
+      improve the product. No personal data is ever collected.
+  disclaimer_accepted:
+    name: Disclaimer accepted
+    description: >-
+      Indicates you have read and accepted the disclaimer.
+  privacy_accepted:
+    name: Privacy notice accepted
+    description: >-
+      Indicates you have read and accepted the privacy notice.
+  onboarding_completed:
+    name: Onboarding completed
+    description: >-
+      Indicates the setup wizard has been completed.
+  debug_mode:
+    name: Debug mode
+    description: >-
+      Enable verbose logging for troubleshooting.

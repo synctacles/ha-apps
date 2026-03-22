@@ -1,0 +1,103 @@
+configuration:
+  pricing_mode:
+    name: Pristilstand
+    description: >-
+      Hvordan din elpris beregnes. Auto (skatteprofil per zone),
+      Manuel (egne tariffer), Ekstern Sensor (Tibber, Zonneplan, osv.),
+      P1-måler eller Målertarif.
+  plan:
+    name: Landeprofil
+    description: >-
+      Hurtig opsætning for dit land. Indstiller zone og skatteprofil automatisk.
+  zone:
+    name: Budzone
+    description: >-
+      Din elbudzone (f.eks. DK1, DK2, DE-LU, SE3).
+  go_threshold:
+    name: GO-tærskel
+    description: >-
+      Procent under daggennemsnittet for et GO-signal.
+      Standard -15 betyder GO når prisen er 15% under gennemsnittet.
+  avoid_threshold:
+    name: AVOID-tærskel
+    description: >-
+      Procent over daggennemsnittet for et AVOID-signal.
+      Standard 20 betyder AVOID når prisen er 20% over gennemsnittet.
+  best_window_hours:
+    name: Bedste vindue (timer)
+    description: >-
+      Antal sammenhængende timer (1–8) for billigste-vindue-finderen.
+  alerts_enabled:
+    name: Prisalarmer
+    description: >-
+      Send en Home Assistant-notifikation når prisen krydser alarmtærsklen.
+  alert_threshold:
+    name: Alarmtærskel (EUR/kWh)
+    description: >-
+      Prisniveau der udløser en notifikation. Kun aktiv når alarmer er aktiveret.
+  coefficient:
+    name: Leverandørkoefficient
+    description: >-
+      Leverandørspecifik priskoefficient til forbrugerprisberegning.
+      Lad stå på 0 for at bruge standarden fra Synctacles Worker.
+  supplier_id:
+    name: Leverandør
+    description: >-
+      Din energileverandør (kun Holland). Bruges til leverandørspecifik
+      delta-kalibrering for at vise din nøjagtige forbrugerpris.
+  supplier_markup:
+    name: Leverandørtillæg (EUR/kWh)
+    description: >-
+      Fast tillæg som din leverandør lægger oven i engrosprisen.
+      Sæt til 0 for at bruge standarden fra Synctacles Worker.
+  manual_vat_rate:
+    name: Momssats (%)
+    description: >-
+      Momsprocent for manuel pristilstand (f.eks. 25 for Danmark).
+  manual_energy_tax:
+    name: Energiafgift (EUR/kWh)
+    description: >-
+      Energiafgift per kWh for manuel pristilstand.
+  manual_surcharges:
+    name: Tillæg (EUR/kWh)
+    description: >-
+      Yderligere tillæg per kWh for manuel pristilstand.
+  manual_network_tariff:
+    name: Nettarif (EUR/kWh)
+    description: >-
+      Nettransporttarif per kWh for manuel pristilstand.
+  fixed_rate_price:
+    name: Fast pris (EUR/kWh)
+    description: >-
+      Din kontraktpris per kWh. Bruges kun i fast-pris tilstand.
+  p1_sensor_entity:
+    name: Tarifsensor-entitet
+    description: >-
+      Home Assistant-entitet der leverer en tarif i EUR/kWh.
+      Virker med P1-målere, Zonneplan, Tibber, Octopus og andre integrationer.
+  power_sensor:
+    name: Effektsensor-entitet
+    description: >-
+      Home Assistant-entitet for aktuelt strømforbrug (W eller kW).
+      Påkrævet for live omkostningsovervågning, daglige besparelser og forbrugsscore.
+  telemetry_enabled:
+    name: Telemetri
+    description: >-
+      Send anonyme tekniske data (HA-version, zone, fejlmønstre) for at
+      forbedre produktet. Der indsamles aldrig personlige data.
+  disclaimer_accepted:
+    name: Ansvarsfraskrivelse accepteret
+    description: >-
+      Angiver at du har læst og accepteret ansvarsfraskrivelsen.
+  privacy_accepted:
+    name: Privatlivspolitik accepteret
+    description: >-
+      Angiver at du har læst og accepteret privatlivspolitikken.
+  onboarding_completed:
+    name: Opsætning gennemført
+    description: >-
+      Angiver at opsætningsguiden er gennemført.
+  debug_mode:
+    name: Fejlfindingstilstand
+    description: >-
+      Aktiver detaljeret logning til fejlfinding.

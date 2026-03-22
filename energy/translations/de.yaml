@@ -1,0 +1,103 @@
+configuration:
+  pricing_mode:
+    name: Preismodus
+    description: >-
+      Wie dein Strompreis berechnet wird. Auto (Steuerprofil pro Zone),
+      Manuell (eigene Tarife), Externer Sensor (Tibber, Zonneplan, etc.),
+      P1-Zähler oder Zählertarif.
+  plan:
+    name: Länderprofil
+    description: >-
+      Schnelleinrichtung für dein Land. Stellt Zone und Steuerprofil automatisch ein.
+  zone:
+    name: Gebotszone
+    description: >-
+      Deine Stromgebotszone (z.B. DE-LU, AT, NL, FR, NO1).
+  go_threshold:
+    name: GO-Schwelle
+    description: >-
+      Prozent unter dem Tagesdurchschnitt für ein GO-Signal.
+      Standard -15 bedeutet GO bei einem Preis 15% unter dem Durchschnitt.
+  avoid_threshold:
+    name: AVOID-Schwelle
+    description: >-
+      Prozent über dem Tagesdurchschnitt für ein AVOID-Signal.
+      Standard 20 bedeutet AVOID bei einem Preis 20% über dem Durchschnitt.
+  best_window_hours:
+    name: Bestes Fenster (Stunden)
+    description: >-
+      Anzahl aufeinanderfolgender Stunden (1–8) für den Günstigste-Stunden-Finder.
+  alerts_enabled:
+    name: Preisalarme
+    description: >-
+      Sende eine Home Assistant-Benachrichtigung wenn der Preis die Alarmschwelle überschreitet.
+  alert_threshold:
+    name: Alarmschwelle (EUR/kWh)
+    description: >-
+      Preisniveau das eine Benachrichtigung auslöst. Nur aktiv wenn Alarme aktiviert sind.
+  coefficient:
+    name: Anbieterkoeffizient
+    description: >-
+      Anbieterspezifischer Preiskoeffizient für die Verbraucherpreisberechnung.
+      Bei 0 belassen um den Standard des Synctacles Workers zu verwenden.
+  supplier_id:
+    name: Anbieter
+    description: >-
+      Dein Energieanbieter (nur Niederlande). Wird für anbieterspezifische
+      Delta-Kalibrierung verwendet um deinen exakten Verbraucherpreis anzuzeigen.
+  supplier_markup:
+    name: Anbieteraufschlag (EUR/kWh)
+    description: >-
+      Fester Aufschlag den dein Anbieter auf den Großhandelspreis erhebt.
+      Auf 0 setzen um den Standard des Synctacles Workers zu verwenden.
+  manual_vat_rate:
+    name: MwSt.-Satz (%)
+    description: >-
+      Mehrwertsteuersatz für den manuellen Preismodus (z.B. 19 für Deutschland).
+  manual_energy_tax:
+    name: Energiesteuer (EUR/kWh)
+    description: >-
+      Energiesteuer pro kWh für den manuellen Preismodus.
+  manual_surcharges:
+    name: Zuschläge (EUR/kWh)
+    description: >-
+      Zusätzliche Zuschläge pro kWh für den manuellen Preismodus.
+  manual_network_tariff:
+    name: Netzentgelt (EUR/kWh)
+    description: >-
+      Netzentgelt pro kWh für den manuellen Preismodus.
+  fixed_rate_price:
+    name: Festpreis (EUR/kWh)
+    description: >-
+      Dein Vertragspreis pro kWh. Nur im Festpreis-Modus verwendet.
+  p1_sensor_entity:
+    name: Tarifsensor-Entität
+    description: >-
+      Home Assistant-Entität die einen Tarif in EUR/kWh liefert.
+      Funktioniert mit P1-Zählern, Zonneplan, Tibber, Octopus und anderen Integrationen.
+  power_sensor:
+    name: Leistungssensor-Entität
+    description: >-
+      Home Assistant-Entität für den aktuellen Stromverbrauch (W oder kW).
+      Erforderlich für Live-Kostenüberwachung, tägliche Einsparungen und Verbrauchsscore.
+  telemetry_enabled:
+    name: Telemetrie
+    description: >-
+      Sende anonyme technische Daten (HA-Version, Zone, Fehlermuster) um das
+      Produkt zu verbessern. Es werden nie persönliche Daten erfasst.
+  disclaimer_accepted:
+    name: Haftungsausschluss akzeptiert
+    description: >-
+      Zeigt an dass du den Haftungsausschluss gelesen und akzeptiert hast.
+  privacy_accepted:
+    name: Datenschutzhinweis akzeptiert
+    description: >-
+      Zeigt an dass du den Datenschutzhinweis gelesen und akzeptiert hast.
+  onboarding_completed:
+    name: Einrichtung abgeschlossen
+    description: >-
+      Zeigt an dass der Einrichtungsassistent abgeschlossen wurde.
+  debug_mode:
+    name: Debug-Modus
+    description: >-
+      Aktiviere ausführliches Logging zur Fehlerbehebung.

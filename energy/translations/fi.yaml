@@ -1,0 +1,103 @@
+configuration:
+  pricing_mode:
+    name: Hinnoittelutila
+    description: >-
+      Miten sähköhintasi lasketaan. Auto (veroprofiili alueittain),
+      Manuaalinen (omat tariffit), Ulkoinen Sensori (Tibber, Zonneplan, jne.),
+      P1-mittari tai Mittaritariffi.
+  plan:
+    name: Maaprofiili
+    description: >-
+      Pikamääritys maallesi. Asettaa alueen ja veroprofiilin automaattisesti.
+  zone:
+    name: Tarjousalue
+    description: >-
+      Sähkön tarjousalueesi (esim. FI, SE3, DK1, DE-LU).
+  go_threshold:
+    name: GO-kynnys
+    description: >-
+      Prosentti päivän keskiarvon alapuolella GO-signaalille.
+      Oletus -15 tarkoittaa GO kun hinta on 15% keskiarvon alapuolella.
+  avoid_threshold:
+    name: AVOID-kynnys
+    description: >-
+      Prosentti päivän keskiarvon yläpuolella AVOID-signaalille.
+      Oletus 20 tarkoittaa AVOID kun hinta on 20% keskiarvon yläpuolella.
+  best_window_hours:
+    name: Paras ikkuna (tunnit)
+    description: >-
+      Peräkkäisten tuntien määrä (1–8) edullisimman ikkunan etsijälle.
+  alerts_enabled:
+    name: Hintahälytykset
+    description: >-
+      Lähetä Home Assistant -ilmoitus kun hinta ylittää hälytyskynnyksen.
+  alert_threshold:
+    name: Hälytyskynnys (EUR/kWh)
+    description: >-
+      Hintataso joka laukaisee ilmoituksen. Aktiivinen vain kun hälytykset ovat käytössä.
+  coefficient:
+    name: Toimittajakerroin
+    description: >-
+      Toimittajakohtainen hintakerroin kuluttajahinnan laskentaan.
+      Jätä 0:ksi käyttääksesi Synctacles Workerin oletusarvoa.
+  supplier_id:
+    name: Toimittaja
+    description: >-
+      Energiatoimittajasi (vain Alankomaat). Käytetään toimittajakohtaiseen
+      delta-kalibrointiin tarkan kuluttajahinnan näyttämiseksi.
+  supplier_markup:
+    name: Toimittajalisä (EUR/kWh)
+    description: >-
+      Kiinteä lisä jonka toimittajasi lisää tukkuhintaan.
+      Aseta 0:ksi käyttääksesi Synctacles Workerin oletusarvoa.
+  manual_vat_rate:
+    name: ALV-prosentti (%)
+    description: >-
+      Arvonlisäveroprosentti manuaaliselle hinnoittelutilalle (esim. 24 Suomessa).
+  manual_energy_tax:
+    name: Energiavero (EUR/kWh)
+    description: >-
+      Energiavero per kWh manuaaliselle hinnoittelutilalle.
+  manual_surcharges:
+    name: Lisämaksut (EUR/kWh)
+    description: >-
+      Lisämaksut per kWh manuaaliselle hinnoittelutilalle.
+  manual_network_tariff:
+    name: Siirtotariffi (EUR/kWh)
+    description: >-
+      Verkkosiirtotariffi per kWh manuaaliselle hinnoittelutilalle.
+  fixed_rate_price:
+    name: Kiinteä hinta (EUR/kWh)
+    description: >-
+      Sopimushintasi per kWh. Käytetään vain kiinteän hinnan tilassa.
+  p1_sensor_entity:
+    name: Tariffisensori-entiteetti
+    description: >-
+      Home Assistant -entiteetti joka tarjoaa tariffin EUR/kWh.
+      Toimii P1-mittareiden, Zonneplanin, Tibberin, Octopuksen ja muiden integraatioiden kanssa.
+  power_sensor:
+    name: Tehosensori-entiteetti
+    description: >-
+      Home Assistant -entiteetti nykyiselle sähkönkulutukselle (W tai kW).
+      Vaaditaan reaaliaikaiseen kustannusseurantaan, päivittäisiin säästöihin ja käyttöpisteisiin.
+  telemetry_enabled:
+    name: Telemetria
+    description: >-
+      Lähetä anonyymia teknistä dataa (HA-versio, alue, virhemallit) tuotteen
+      parantamiseksi. Henkilötietoja ei koskaan kerätä.
+  disclaimer_accepted:
+    name: Vastuuvapauslauseke hyväksytty
+    description: >-
+      Osoittaa että olet lukenut ja hyväksynyt vastuuvapauslausekkeen.
+  privacy_accepted:
+    name: Tietosuojailmoitus hyväksytty
+    description: >-
+      Osoittaa että olet lukenut ja hyväksynyt tietosuojailmoituksen.
+  onboarding_completed:
+    name: Määritys valmis
+    description: >-
+      Osoittaa että ohjattu määritys on suoritettu.
+  debug_mode:
+    name: Virheenkorjaustila
+    description: >-
+      Ota käyttöön yksityiskohtainen lokitus vianmääritystä varten.
