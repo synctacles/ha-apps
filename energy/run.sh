@@ -3,14 +3,12 @@
 
 # Read addon options and export as env vars
 export PRICING_MODE="$(bashio::config 'pricing_mode' 'auto')"
+export ENERGY_PLAN="$(bashio::config 'plan' '')"
 export ENERGY_ZONE="$(bashio::config 'zone' 'NL')"
 export ENERGY_GO_THRESHOLD="$(bashio::config 'go_threshold' '-15')"
 export ENERGY_AVOID_THRESHOLD="$(bashio::config 'avoid_threshold' '20')"
 export ENERGY_ALERTS_ENABLED="$(bashio::config 'alerts_enabled' 'false')"
 export ENERGY_ALERT_THRESHOLD="$(bashio::config 'alert_threshold' '0')"
-export ENEVER_ENABLED="$(bashio::config 'enever_enabled' 'false')"
-export ENEVER_TOKEN="$(bashio::config 'enever_token' '')"
-export ENEVER_LEVERANCIER="$(bashio::config 'enever_leverancier' '')"
 export ENERGY_COEFFICIENT="$(bashio::config 'coefficient' '0')"
 export BEST_WINDOW_HOURS="$(bashio::config 'best_window_hours' '3')"
 export POWER_SENSOR_ENTITY="$(bashio::config 'power_sensor' '')"
@@ -22,8 +20,10 @@ export MANUAL_SURCHARGES="$(bashio::config 'manual_surcharges' '0')"
 export MANUAL_NETWORK_TARIFF="$(bashio::config 'manual_network_tariff' '0')"
 export FIXED_RATE_PRICE="$(bashio::config 'fixed_rate_price' '0')"
 export P1_SENSOR_ENTITY="$(bashio::config 'p1_sensor_entity' '')"
+export TELEMETRY_ENABLED="$(bashio::config 'telemetry_enabled' 'true')"
 export DISCLAIMER_ACCEPTED="$(bashio::config 'disclaimer_accepted' 'false')"
 export PRIVACY_ACCEPTED="$(bashio::config 'privacy_accepted' 'false')"
+export ONBOARDING_COMPLETED="$(bashio::config 'onboarding_completed' 'false')"
 # Hidden: override Synctacles server URL (empty = use production default)
 _synctacles_url="$(bashio::config 'synctacles_url' '')"
 if [ -n "${_synctacles_url}" ] && [ "${_synctacles_url}" != "null" ]; then
