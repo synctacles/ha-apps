@@ -2,7 +2,7 @@
 
 **Real-time electricity price optimization for NL and EU countries**
 
-> ⚠️ **Beta Release (v0.1.0-beta)** — This app is in public beta. Bugs may occur. Report issues via [GitHub Issues](https://github.com/synctacles/ha-apps/issues).
+**Stable release (v0.4.0)** — All features free, no registration required. Report issues via [GitHub Issues](https://github.com/synctacles/ha-apps/issues).
 
 ---
 
@@ -35,7 +35,6 @@
 | `go_threshold` | `-15` | Price below which GO is recommended (ct/kWh) |
 | `avoid_threshold` | `20` | Price above which AVOID is recommended (ct/kWh) |
 | `best_window_hours` | `3` | Number of cheapest hours to find per day |
-| `enever_enabled` | `false` | Enable Enever integration (NL suppliers) |
 | `coefficient` | `0` | Price correction coefficient |
 | `debug_mode` | `false` | Enable verbose logging |
 
@@ -44,7 +43,6 @@
 ## Source Code
 
 - **App:** [synctacles/energy-app](https://github.com/synctacles/energy-app)
-- **Backend:** [synctacles/energy-backend](https://github.com/synctacles/energy-backend)
 
 ---
 

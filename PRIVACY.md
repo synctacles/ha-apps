@@ -50,7 +50,7 @@ To help improve app quality for all users, your app periodically shares anonymou
 - **Uptime range** (e.g., "7-30 days" — bucketed, not exact)
 
 **Energy app additionally shares:**
-- **Active price source** (e.g., "worker", "enever") and **fallback frequency range**
+- **Active price source** (e.g., "worker", "external_sensor") and **fallback frequency range**
 - **Cache efficiency range** (e.g., ">90%")
 - **Price source reliability** (which source tier is active, daily report)
 - **Energy coverage hints** (bidding zone and contract type, one-time, only if a third-party energy sensor is detected and Synctacles Energy is not installed)
