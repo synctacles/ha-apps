@@ -11,7 +11,8 @@ export AUTO_CLEANUP_ENABLED="$(bashio::config 'auto_cleanup_enabled' 'false')"
 export AUTONOMOUS_MODE_ENABLED="$(bashio::config 'autonomous_mode_enabled' 'false')"
 export DEBUG_MODE="$(bashio::config 'debug_mode' 'false')"
 export DEMO_MODE="$(bashio::config 'demo_mode' 'false')"
-export TELEMETRY_ENABLED="$(bashio::config 'telemetry_enabled' 'false')"
+export TELEMETRY_ENABLED="$(bashio::config 'telemetry_enabled' 'true')"
+export HEARTBEAT_ENABLED="$(bashio::config 'heartbeat_enabled' 'true')"
 
 # Match HA Supervisor ingress port
 export INGRESS_PORT=8080
