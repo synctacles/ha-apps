@@ -96,4 +96,4 @@ MIT — See [LICENSE](LICENSE)
 
 ---
 
-**Made with ❤️ on Madeira** | [synctacles.com](https://synctacles.com)
+[synctacles.com](https://synctacles.com)

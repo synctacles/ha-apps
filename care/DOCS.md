@@ -250,5 +250,3 @@ When the Synctacles Energy app is uninstalled but its MQTT sensors remain, Care 
 | 🌐 Website | https://synctacles.com |
 
 ---
-
-*Gemaakt met ❤️ op Madeira*

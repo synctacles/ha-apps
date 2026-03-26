@@ -19,7 +19,7 @@ Synctacles provides free Home Assistant apps for energy optimization and system 
 
 **Name:** Synctacles
 **Contact:** support@synctacles.com
-**Location:** Madeira, Portugal
+**Location:** Portugal
 
 ---
 

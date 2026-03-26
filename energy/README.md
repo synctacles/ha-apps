@@ -45,5 +45,3 @@
 - **App:** [synctacles/energy-app](https://github.com/synctacles/energy-app)
 
 ---
-
-**Gemaakt met ❤️ op Madeira**
