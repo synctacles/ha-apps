@@ -81,10 +81,10 @@ configuration:
       Entidad de Home Assistant para el consumo actual (W o kW).
       Requerido para seguimiento de costes en vivo, ahorro diario y puntuación de uso.
   telemetry_enabled:
-    name: Telemetría
+    name: Compartir con la comunidad
     description: >-
-      Enviar datos técnicos anónimos (versión HA, zona, patrones de error) para
-      mejorar el producto. Nunca se recopilan datos personales.
+      Ayuda a mejorar Synctacles compartiendo información anónima del sistema
+      (versión HA, zona, patrones de error). Nunca se recopilan datos personales.
   disclaimer_accepted:
     name: Descargo aceptado
     description: >-

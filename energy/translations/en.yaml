@@ -81,10 +81,10 @@ configuration:
       Home Assistant entity for current power consumption (W or kW).
       Required for live cost tracking, daily savings, and usage score.
   telemetry_enabled:
-    name: Telemetry
+    name: Community sharing
     description: >-
-      Send anonymous technical data (HA version, zone, error patterns) to
-      improve the product. No personal data is ever collected.
+      Help improve Synctacles by sharing anonymous system information
+      (HA version, zone, error patterns). No personal data is ever collected.
   disclaimer_accepted:
     name: Disclaimer accepted
     description: >-

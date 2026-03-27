@@ -81,10 +81,10 @@ configuration:
       Home Assistant -entiteetti nykyiselle sähkönkulutukselle (W tai kW).
       Vaaditaan reaaliaikaiseen kustannusseurantaan, päivittäisiin säästöihin ja käyttöpisteisiin.
   telemetry_enabled:
-    name: Telemetria
+    name: Yhteisön jakaminen
     description: >-
-      Lähetä anonyymia teknistä dataa (HA-versio, alue, virhemallit) tuotteen
-      parantamiseksi. Henkilötietoja ei koskaan kerätä.
+      Auta parantamaan Synctaclesia jakamalla anonyymejä järjestelmätietoja
+      (HA-versio, alue, virhemallit). Henkilötietoja ei koskaan kerätä.
   disclaimer_accepted:
     name: Vastuuvapauslauseke hyväksytty
     description: >-
