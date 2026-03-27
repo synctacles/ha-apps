@@ -81,10 +81,10 @@ configuration:
       Entité Home Assistant pour la consommation actuelle (W ou kW).
       Requis pour le suivi des coûts en direct, les économies quotidiennes et le score d'utilisation.
   telemetry_enabled:
-    name: Télémétrie
+    name: Partage communautaire
     description: >-
-      Envoyer des données techniques anonymes (version HA, zone, schémas d'erreurs)
-      pour améliorer le produit. Aucune donnée personnelle n'est jamais collectée.
+      Aidez à améliorer Synctacles en partageant des informations système anonymes
+      (version HA, zone, schémas d'erreurs). Aucune donnée personnelle n'est jamais collectée.
   disclaimer_accepted:
     name: Clause acceptée
     description: >-

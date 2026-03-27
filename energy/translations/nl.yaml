@@ -81,10 +81,10 @@ configuration:
       Home Assistant-entiteit voor huidig stroomverbruik (W of kW).
       Vereist voor live kostenbewaking, dagelijkse besparing en verbruiksscore.
   telemetry_enabled:
-    name: Telemetrie
+    name: Community data delen
     description: >-
-      Stuur anonieme technische data (HA-versie, zone, foutpatronen) om het
-      product te verbeteren. Er worden nooit persoonlijke gegevens verzameld.
+      Help Synctacles verbeteren door anonieme systeeminformatie te delen
+      (HA-versie, zone, foutpatronen). Er worden nooit persoonlijke gegevens verzameld.
   disclaimer_accepted:
     name: Disclaimer geaccepteerd
     description: >-
