@@ -47,6 +47,28 @@ options:
   onboarding_completed: false
   debug_mode: false
 schema:
+  pricing_mode: str
+  plan: str
+  zone: str
+  go_threshold: float
+  avoid_threshold: float
+  best_window_hours: "int(1,8)"
+  alerts_enabled: bool
+  alert_threshold: float
+  coefficient: float
+  supplier_id: str
+  supplier_markup: float
+  manual_vat_rate: float
+  manual_energy_tax: float
+  manual_surcharges: float
+  manual_network_tariff: float
+  fixed_rate_price: float
+  p1_sensor_entity: str
+  power_sensor: str
+  telemetry_enabled: bool
+  disclaimer_accepted: bool
+  privacy_accepted: bool
+  onboarding_completed: bool
   debug_mode: bool
 changelog: |
   ## 0.4.0
