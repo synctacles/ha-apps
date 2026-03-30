@@ -1,5 +1,5 @@
 name: "Synctacles Energy"
-version: "0.4.7"
+version: "0.4.8"
 slug: "synctacles_energy"
 description: "Real-time EU electricity prices with GO/WAIT/AVOID signals, 15 MQTT sensors, renewable energy tracking, and supplier price calibration for 28 countries"
 url: "https://github.com/synctacles/energy-app"
