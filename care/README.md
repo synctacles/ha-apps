@@ -1,34 +1,37 @@
-# Synctacles CARE - Home Assistant App
+# Synctacles CARE
 
-System diagnostics, AI-powered troubleshooting, and Config Doctor for Home Assistant.
-All features are 100% free with no registration required.
+**System diagnostics, AI-powered troubleshooting, and Config Doctor for Home Assistant**
+
+All features free. No account, no subscription — install and go.
+
+---
 
 ## Features
 
-- **Health Scan** - A-F grading system (database, integrations, sensors, recorder, logs)
-- **Security Scan** - Vulnerability detection with 0-100 score
-- **Cleanup** - Orphan entity removal with resource-aware chunked deletion
-- **Backup Insights** - Disk usage overview and backup management
-- **KB Search** - Access 19,000+ Home Assistant support articles
-- **AI Assist** - BYOK AI integration with Diagnose and Config Doctor (Anthropic, OpenAI, Groq, Gemini)
-- **Config Doctor** - AI-powered automation analysis with one-click fix and rollback
-- **MQTT Maintenance** - Detect and remove orphaned MQTT entities with confidence scoring and bulk cleanup
-- **Feedback** - Structured bug reports with environment context
-- **Multi-arch** - amd64, arm64, armv7
+- 🏥 **Health Scan** — A-F grading (database, integrations, sensors, recorder, logs)
+- 🛡️ **Security Scan** — 7-point vulnerability check with 0-100 score
+- 🧹 **Cleanup** — Orphan entity detection and removal
+- 💾 **Backup Insights** — Disk usage overview with backup breakdown
+- 📚 **KB Search** — 21,000+ Home Assistant support articles
+- 🤖 **AI Diagnose** — BYOK AI troubleshooting (Anthropic, OpenAI, Groq, Gemini)
+- 🔧 **Config Doctor** — AI-powered automation analysis with one-click fix and rollback
+- 📡 **MQTT Maintenance** — Orphaned MQTT entity detection with confidence scoring
+- 💬 **Feedback** — Structured bug reports with environment context
+- 🌐 **8 Languages** — da, de, en, es, fi, fr, nl, pt
+- 🆓 **Free** — All features, BYOK for AI (bring your own API key)
 
-## Build
+---
 
-Images are built via GitHub Actions and published to GHCR:
+## Installation
 
-```
-ghcr.io/synctacles/amd64-care:VERSION
-ghcr.io/synctacles/aarch64-care:VERSION
-ghcr.io/synctacles/armv7-care:VERSION
-```
+1. Go to **Settings** → **Apps** → **App Store** in Home Assistant
+2. Click **⋮** → **Repositories** → add `https://github.com/synctacles/ha-apps`
+3. Find **Synctacles Care** and click **Install**
 
-## Files
+---
 
-- `config.yaml` - HA app metadata + changelog
-- `DOCS.md` - User-facing documentation (shown in HA Documentation tab)
-- `translations/` - Configuration option translations (en, nl)
-- `icon.png` / `logo.png` - App branding
+## Source Code
+
+[synctacles/care-app](https://github.com/synctacles/care-app) — Go, Docker, open source
+
+---
