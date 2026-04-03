@@ -39,6 +39,7 @@ options:
   manual_surcharges: 0
   manual_network_tariff: 0
   fixed_rate_price: 0
+  tou_config: ""
   p1_sensor_entity: ""
   power_sensor: ""
   telemetry_enabled: true
