@@ -63,6 +63,7 @@ schema:
   manual_surcharges: float
   manual_network_tariff: float
   fixed_rate_price: float
+  tou_config: str
   p1_sensor_entity: str
   power_sensor: str
   telemetry_enabled: bool
