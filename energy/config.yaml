@@ -1,7 +1,7 @@
 name: "Synctacles Energy"
 version: "0.4.50"
 slug: "synctacles_energy"
-description: "Real-time EU electricity prices with GO/WAIT/AVOID signals, 15 MQTT sensors, renewable energy tracking, and supplier price calibration for 28 countries"
+description: "Real-time electricity prices with GO/WAIT/AVOID signals, 15 MQTT sensors, renewable energy tracking — 50 zones, 31 countries, 11 currencies"
 url: "https://github.com/synctacles/energy-app"
 documentation: "https://github.com/synctacles/energy-app/blob/main/DOCS.md"
 arch:
@@ -73,6 +73,19 @@ schema:
   onboarding_completed: bool
   debug_mode: bool
 changelog: |
+  ## 0.9.0
+  - 50 zones across 31 countries (was 46 zones, 28 countries)
+  - Regulated zones: Malta, Iceland, Cyprus, Turkey, Madeira, Azores, Greek Islands
+  - Multi-currency: EUR, GBP, NOK, SEK, DKK, PLN, TRY, CHF, CZK, HUF, ISK
+  - Hot-swap zone and pricing mode without restart
+  - Setup wizard: auto-detect zone, timezone/country correction, TOU auto-select
+  - Zone mismatch detection with global banner on all tabs
+  - Unsupported region detection with zone request form
+  - Fixed/TOU pricing for regulated zones with dashboard seeding
+  - Price accuracy: new "regulated" level for fixed/TOU zones
+  - Price breakdown hidden for regulated zones (no wholesale decomposition)
+  - Contract type selection available for all zones (dynamic + fixed)
+  - Schema fix: all addon options now persist correctly across restarts
   ## 0.4.0
   - Energy-Charts as primary source for 26 EU zones, ENTSO-E fallback
   - 5 pricing modes: Auto, Manual, External Sensor, P1 Meter, Meter Tariff
