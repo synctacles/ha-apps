@@ -4,7 +4,7 @@
 name: "Synctacles Care"
 version: "1.0.0"
 slug: "synctacles_care"
-description: "🩺 Health diagnostics, security scan, AI troubleshooting & 21,000+ KB articles for Home Assistant"
+description: "🩺 Health diagnostics, security scan, AI troubleshooting & 21,500+ KB articles for Home Assistant"
 url: "https://github.com/synctacles/care-app"
 arch:
   - amd64
@@ -155,7 +155,7 @@ changelog: |
   - Health scan (A-F score)
   - Security scan (0-100 score)
   - Orphan entity detection
-  - Knowledge base search (21,000+ articles)
+  - Knowledge base search (21,500+ articles)
   - AI diagnostics (with user's Anthropic API key)
   - Free tier: All features unlocked
   - Privacy-focused: Optional telemetry, GDPR-compliant
